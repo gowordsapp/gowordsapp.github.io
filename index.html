@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GoWords - Learn languages with flashcards</title>
-    <!-- Paddle.js v2 -->
+    <!-- Paddle.js v2 & Configuration -->
     <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+    <script src="config.js"></script>
     <style>
         * {
             margin: 0;
@@ -802,10 +803,7 @@
         let currentLang = 'en';
 
         // 1. Paddle Checkout Setup
-        Paddle.Environment.set("sandbox");
-        Paddle.Initialize({ 
-            token: "test_3ea1711e3c54c2aa322b4c373b6" 
-        });
+        initPaddleConfig();
 
         const payBtn = document.getElementById('pay-button');
         if (payBtn) {
@@ -817,7 +815,7 @@
                 const checkoutOptions = {
                     items: [
                         { 
-                            priceId: "pri_01m0mwe5n2zq0btc69bch5xxqw", 
+                            priceId: window.PADDLE_CONFIG ? window.PADDLE_CONFIG.prices.proMonthly : "pri_01m0mwe5n2zq0btc69bch5xxqw", 
                             quantity: 1 
                         }
                     ],
