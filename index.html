@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GoWords - Learn languages with flashcards</title>
+    <!-- Paddle.js v2 -->
+    <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
     <style>
         * {
             margin: 0;
@@ -120,6 +122,14 @@
             animation: fadeInUp 0.8s ease 0.1s both;
         }
 
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
         .cta-button {
             display: inline-block;
             padding: 15px 40px;
@@ -130,12 +140,29 @@
             font-weight: bold;
             font-size: 18px;
             transition: transform 0.3s, box-shadow 0.3s;
-            animation: fadeInUp 0.8s ease 0.2s both;
         }
 
         .cta-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .cta-button-pro {
+            display: inline-block;
+            padding: 15px 35px;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            color: #1f2937;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 18px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+        }
+
+        .cta-button-pro:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.6);
         }
 
         .features {
@@ -208,6 +235,177 @@
             font-size: 24px;
             font-weight: bold;
             margin: 0 auto 20px;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            background: #f8f9fa;
+            padding: 90px 0;
+        }
+
+        .pricing-wrapper {
+            max-width: 860px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+        }
+
+        .pricing-header {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .badge-pro {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .pricing-header h2 {
+            font-size: 32px;
+            margin-bottom: 8px;
+            font-weight: 800;
+        }
+
+        .pricing-header p {
+            font-size: 16px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .pricing-body {
+            padding: 40px 35px;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .pricing-features h3 {
+            font-size: 20px;
+            color: #1f2937;
+            margin-bottom: 20px;
+        }
+
+        .pricing-features-list {
+            list-style: none;
+        }
+
+        .pricing-features-list li {
+            position: relative;
+            padding-left: 32px;
+            margin-bottom: 15px;
+            color: #4b5563;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .pricing-features-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 22px;
+            height: 22px;
+            background: #e0e7ff;
+            color: #4f46e5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .pricing-card-box {
+            background: #f9fafb;
+            border: 2px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 28px 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .pricing-price-tag {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .pricing-price-amount {
+            font-size: 46px;
+            font-weight: 800;
+            color: #111827;
+            line-height: 1;
+        }
+
+        .pricing-price-period {
+            font-size: 16px;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        .pricing-pay-btn {
+            width: 100%;
+            padding: 16px;
+            font-size: 17px;
+            font-weight: 700;
+            color: white;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 14px rgba(102, 126, 234, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-family: inherit;
+        }
+
+        .pricing-pay-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+        }
+
+        .pricing-security-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 14px;
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        .pricing-security-badge svg {
+            width: 16px;
+            height: 16px;
+            fill: #10b981;
+        }
+
+        .pricing-cancel-note {
+            font-size: 12px;
+            color: #9ca3af;
+            text-align: center;
+            margin-top: 8px;
         }
 
         .cta-section {
@@ -340,6 +538,20 @@
             .beta-form {
                 padding: 0 20px;
             }
+
+            .pricing-body {
+                grid-template-columns: 1fr;
+                padding: 30px 20px;
+                gap: 30px;
+            }
+
+            .pricing-header {
+                padding: 30px 20px;
+            }
+
+            .pricing-header h2 {
+                font-size: 26px;
+            }
         }
     </style>
 </head>
@@ -355,6 +567,7 @@
                     <div class="nav-links">
                         <a href="#features" data-key="navFeatures">Features</a>
                         <a href="#how-it-works" data-key="navHowItWorks">How it works</a>
+                        <a href="#pricing" data-key="navPricing">Pricing</a>
                         <a href="#beta" data-key="navBeta">Beta</a>
                         <a href="https://gowordsapp.github.io/mornar-labs/privacy.html" data-key="navPrivacy">Privacy Policy</a>
                     </div>
@@ -373,7 +586,10 @@
             <div class="container">
                 <h1 data-key="heroTitle">Learn languages with GoWords</h1>
                 <p data-key="heroSubtitle">Effective flashcard learning with spaced repetition system</p>
-                <a href="#beta" class="cta-button" data-key="heroCta">Join beta test →</a>
+                <div class="hero-actions">
+                    <a href="#pricing" class="cta-button-pro" data-key="heroProCta">Get GoWords Pro ($10/mo) ★</a>
+                    <a href="#beta" class="cta-button" data-key="heroCta">Join beta test →</a>
+                </div>
             </div>
         </section>
 
@@ -428,6 +644,56 @@
             </div>
         </section>
 
+        <!-- Pricing Section -->
+        <section id="pricing" class="pricing-section">
+            <div class="container">
+                <div class="pricing-wrapper">
+                    <div class="pricing-header">
+                        <span class="badge-pro" data-key="proBadge">Premium Access</span>
+                        <h2 data-key="pricingTitle">GoWords Pro</h2>
+                        <p data-key="pricingSubtitle">Unlock unlimited decks, AI assistant, and advanced spaced repetition.</p>
+                    </div>
+                    
+                    <div class="pricing-body">
+                        <div class="pricing-features">
+                            <h3 data-key="whatsIncluded">What is included in Pro:</h3>
+                            <ul class="pricing-features-list">
+                                <li data-key="proFeature1">Unlimited decks & vocabulary cards</li>
+                                <li data-key="proFeature2">Smart spaced repetition algorithm</li>
+                                <li data-key="proFeature3">AI-powered word generation & examples</li>
+                                <li data-key="proFeature4">Native speaker audio pronunciation</li>
+                                <li data-key="proFeature5">Cloud sync across all your devices</li>
+                                <li data-key="proFeature6">Priority customer support</li>
+                            </ul>
+                        </div>
+
+                        <div class="pricing-card-box">
+                            <div>
+                                <div class="pricing-price-tag">
+                                    <span class="pricing-price-amount">$10</span>
+                                    <span class="pricing-price-period" data-key="pricePeriod">/ month</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <button id="pay-button" class="pricing-pay-btn">
+                                    <span data-key="subscribeBtn">Subscribe for $10/mo</span>
+                                </button>
+
+                                <div class="pricing-security-badge">
+                                    <svg viewBox="0 0 20 20">
+                                        <path d="M10 2a5 5 0 00-5 5v2a2 2 0 00-2 2v5a2 2 0 002 2h10a2 2 0 002-2v-5a2 2 0 00-2-2H7V7a3 3 0 016 0v2h2V7a5 5 0 00-5-5z"/>
+                                    </svg>
+                                    <span data-key="securePayment">Secure payment via Paddle</span>
+                                </div>
+                                <div class="pricing-cancel-note" data-key="cancelAnytime">Cancel anytime in 1 click</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="beta" class="cta-section">
             <div class="container">
                 <h2 data-key="betaTitle">Become a beta tester</h2>
@@ -458,11 +724,13 @@
             en: {
                 navFeatures: "Features",
                 navHowItWorks: "How it works",
+                navPricing: "Pricing",
                 navBeta: "Beta",
                 navPrivacy: "Privacy Policy",
                 heroTitle: "Learn languages with GoWords",
                 heroSubtitle: "Effective flashcard learning with spaced repetition system",
                 heroCta: "Join beta test →",
+                heroProCta: "Get GoWords Pro ($10/mo) ★",
                 featuresTitle: "Why GoWords?",
                 feature1Title: "Clean Interface",
                 feature1Desc: "Intuitive app that makes learning enjoyable and effective",
@@ -479,6 +747,20 @@
                 step3Desc: "Try to recall the translation, then check yourself",
                 step4Title: "Review regularly",
                 step4Desc: "The algorithm tells you when to review each word",
+                proBadge: "Premium Access",
+                pricingTitle: "GoWords Pro",
+                pricingSubtitle: "Unlock unlimited decks, AI assistant, and advanced spaced repetition.",
+                whatsIncluded: "What is included in Pro:",
+                proFeature1: "Unlimited decks & vocabulary cards",
+                proFeature2: "Smart spaced repetition algorithm",
+                proFeature3: "AI-powered word generation & examples",
+                proFeature4: "Native speaker audio pronunciation",
+                proFeature5: "Cloud sync across all your devices",
+                proFeature6: "Priority customer support",
+                pricePeriod: "/ month",
+                subscribeBtn: "Subscribe for $10/mo",
+                securePayment: "Secure payment via Paddle",
+                cancelAnytime: "Cancel anytime in 1 click",
                 betaTitle: "Become a beta tester",
                 betaSubtitle: "The app is launching soon. Leave your email to get an invitation first",
                 betaButton: "Join beta test",
@@ -492,11 +774,13 @@
             ru: {
                 navFeatures: "Возможности",
                 navHowItWorks: "Как работает",
+                navPricing: "Тарифы",
                 navBeta: "Бета-тест",
                 navPrivacy: "Политика конфиденциальности",
                 heroTitle: "Учите языки с GoWords",
                 heroSubtitle: "Эффективный метод обучения через карточки с интервальными повторениями",
                 heroCta: "Записаться в бета-тест →",
+                heroProCta: "Получить GoWords Pro ($10/мес) ★",
                 featuresTitle: "Почему GoWords?",
                 feature1Title: "Удобный интерфейс",
                 feature1Desc: "Интуитивно понятное приложение, которое делает обучение приятным и эффективным",
@@ -513,6 +797,20 @@
                 step3Desc: "Пытайтесь вспомнить перевод, затем проверяйте себя",
                 step4Title: "Повторяйте регулярно",
                 step4Desc: "Алгоритм подскажет, когда повторять каждое слово",
+                proBadge: "Премиум доступ",
+                pricingTitle: "Подписка GoWords Pro",
+                pricingSubtitle: "Откройте неограниченные колоды, помощь AI и продвинутую систему интервальных повторений.",
+                whatsIncluded: "Что входит в подписку Pro:",
+                proFeature1: "Неограниченное количество колод и карточек",
+                proFeature2: "Умный алгоритм интервальных повторений",
+                proFeature3: "Генерация слов и примеров с помощью AI",
+                proFeature4: "Озвучка слов носителями языка",
+                proFeature5: "Синхронизация прогресса на всех устройствах",
+                proFeature6: "Приоритетная поддержка пользователей",
+                pricePeriod: "/ месяц",
+                subscribeBtn: "Оформить подписку за $10/мес",
+                securePayment: "Безопасная оплата через Paddle",
+                cancelAnytime: "Отмена в любой момент в 1 клик",
                 betaTitle: "Станьте бета-тестером",
                 betaSubtitle: "Приложение скоро запустится. Оставьте email, чтобы получить приглашение первыми",
                 betaButton: "Записаться в бета-тест",
@@ -526,11 +824,13 @@
             sr: {
                 navFeatures: "Mogućnosti",
                 navHowItWorks: "Kako radi",
+                navPricing: "Cene",
                 navBeta: "Beta test",
                 navPrivacy: "Politika privatnosti",
                 heroTitle: "Učite jezike sa GoWords",
                 heroSubtitle: "Efektivna metoda učenja sa karticama i intervalnim ponavljanjem",
                 heroCta: "Prijavi se za beta test →",
+                heroProCta: "Nabavi GoWords Pro ($10/mes) ★",
                 featuresTitle: "Zašto GoWords?",
                 feature1Title: "Jednostavan interfejs",
                 feature1Desc: "Intuitivna aplikacija koja učenje čini prijatnim i efikasnim",
@@ -547,11 +847,25 @@
                 step3Desc: "Pokušajte da se setite prevoda, zatim proverite sebe",
                 step4Title: "Ponavljajte redovno",
                 step4Desc: "Algoritam će vam reći kada da ponovite svaku reč",
+                proBadge: "Premium pristup",
+                pricingTitle: "GoWords Pro pretplata",
+                pricingSubtitle: "Otključajte neograničene špilove, AI asistenta i napredni sistem ponavljanja.",
+                whatsIncluded: "Šta je uključeno u Pro:",
+                proFeature1: "Neograničen broj špilova i kartica reči",
+                proFeature2: "Pametan algoritam intervalnog ponavljanja",
+                proFeature3: "Generisanje reči i primera uz pomoć AI-ja",
+                proFeature4: "Izgovor reči od strane izvornih govornika",
+                proFeature5: "Sinhronizacija na svim vašim uređajima",
+                proFeature6: "Prioritetna korisnička podrška",
+                pricePeriod: "/ mesečno",
+                subscribeBtn: "Pretplatite se za $10/mes",
+                securePayment: "Sigurno plaćanje putem Paddle-a",
+                cancelAnytime: "Otkažite u bilo kom trenutku u 1 klik",
                 betaTitle: "Postanite beta tester",
                 betaSubtitle: "Aplikacija se uskoro pokreće. Ostavite email da biste prvi dobili pozivnicu",
                 betaButton: "Prijavi se za beta test",
                 betaPrivacy: "Ne šaljemo spam, ne delimo vaše podatke",
-                footerCopyright: "© 2026 Mornar Labs. Sva prava zadržana.",
+                footerCopyright: "© 2026 Mornar Labs. Sva права zadržana.",
                 footerTagline: "GoWords - učite jezike sa zadovoljstvom",
                 formSuccess: "✅ Hvala! Kontaktiraćemo vas kada beta test počne.",
                 formError: "❌ Došlo je do greške. Molimo pokušajte kasnije.",
@@ -561,6 +875,41 @@
 
         let currentLang = 'en';
 
+        // 1. Paddle Checkout Setup
+        Paddle.Environment.set("sandbox");
+        Paddle.Initialize({ 
+            token: "test_3ea1711e3c54c2aa322b4c373b6" 
+        });
+
+        const payBtn = document.getElementById('pay-button');
+        if (payBtn) {
+            payBtn.addEventListener('click', () => {
+                const urlParams = new URLSearchParams(window.location.search);
+                const userId = urlParams.get('userId');
+                const customerEmail = urlParams.get('email');
+
+                const checkoutOptions = {
+                    items: [
+                        { 
+                            priceId: "pri_01m0mwe5n2zq0btc69bch5xxqw", 
+                            quantity: 1 
+                        }
+                    ],
+                    settings: {
+                        displayMode: "overlay",
+                        theme: "light",
+                        locale: currentLang === 'sr' ? 'en' : currentLang
+                    }
+                };
+
+                if (customerEmail) checkoutOptions.customer = { email: customerEmail };
+                if (userId) checkoutOptions.customData = { userId: userId };
+
+                Paddle.Checkout.open(checkoutOptions);
+            });
+        }
+
+        // 2. Language Switcher
         function setLanguage(lang) {
             currentLang = lang;
             document.documentElement.lang = lang === 'en' ? 'en' : (lang === 'sr' ? 'sr' : 'ru');
@@ -575,7 +924,7 @@
             
             document.querySelectorAll('[data-key]').forEach(element => {
                 const key = element.getAttribute('data-key');
-                if (translations[lang][key]) {
+                if (translations[lang] && translations[lang][key]) {
                     if (element.tagName === 'INPUT' && element.getAttribute('placeholder') !== null) {
                         element.placeholder = translations[lang][key];
                     } else {
@@ -605,50 +954,52 @@
             });
         });
 
+        // 3. Beta Form Handling
         const form = document.getElementById('betaForm');
         const messageDiv = document.getElementById('formMessage');
         const FORMSPREE_URL = 'https://formspree.io/f/xojpkryy';
 
-        form.action = FORMSPREE_URL;
-
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const submitButton = form.querySelector('button');
-            const originalText = submitButton.textContent;
-            submitButton.textContent = currentLang === 'en' ? 'Sending...' : (currentLang === 'sr' ? 'Slanje...' : 'Отправка...');
-            submitButton.disabled = true;
-            
-            const formData = new FormData(form);
-            
-            try {
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
+        if (form) {
+            form.action = FORMSPREE_URL;
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const submitButton = form.querySelector('button');
+                const originalText = submitButton.textContent;
+                submitButton.textContent = currentLang === 'en' ? 'Sending...' : (currentLang === 'sr' ? 'Slanje...' : 'Отправка...');
+                submitButton.disabled = true;
+                
+                const formData = new FormData(form);
+                
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        messageDiv.className = 'form-message success';
+                        messageDiv.textContent = translations[currentLang].formSuccess;
+                        form.reset();
+                    } else {
+                        throw new Error('Error');
                     }
-                });
-                
-                if (response.ok) {
-                    messageDiv.className = 'form-message success';
-                    messageDiv.textContent = translations[currentLang].formSuccess;
-                    form.reset();
-                } else {
-                    throw new Error('Error');
+                } catch (error) {
+                    messageDiv.className = 'form-message error';
+                    messageDiv.textContent = translations[currentLang].formError;
+                } finally {
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+                    
+                    setTimeout(() => {
+                        messageDiv.className = 'form-message';
+                    }, 5000);
                 }
-            } catch (error) {
-                messageDiv.className = 'form-message error';
-                messageDiv.textContent = translations[currentLang].formError;
-            } finally {
-                submitButton.textContent = originalText;
-                submitButton.disabled = false;
-                
-                setTimeout(() => {
-                    messageDiv.className = 'form-message';
-                }, 5000);
-            }
-        });
+            });
+        }
 
         setLanguage('en');
     </script>

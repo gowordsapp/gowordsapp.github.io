@@ -1,0 +1,615 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoWords Pro - Subscription</title>
+    <!-- Paddle.js v2 -->
+    <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .lang-switcher {
+            display: flex;
+            gap: 8px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            padding: 6px 12px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: all 0.3s;
+            color: #666;
+            font-family: inherit;
+        }
+
+        .lang-btn:hover {
+            background: #f0f0f0;
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        main {
+            flex: 1;
+            padding-top: 130px;
+            padding-bottom: 70px;
+            display: flex;
+            align-items: center;
+        }
+
+        .checkout-wrapper {
+            max-width: 840px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            animation: fadeInUp 0.7s ease;
+        }
+
+        .checkout-header {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .badge-pro {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .checkout-header h1 {
+            font-size: 34px;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .checkout-header p {
+            font-size: 16px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .checkout-content {
+            padding: 40px 35px;
+            display: grid;
+            grid-template-columns: 1.15fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .plan-details h2 {
+            font-size: 20px;
+            color: #1f2937;
+            margin-bottom: 20px;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .features-list li {
+            position: relative;
+            padding-left: 32px;
+            margin-bottom: 15px;
+            color: #4b5563;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .features-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 22px;
+            height: 22px;
+            background: #e0e7ff;
+            color: #4f46e5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .card-box {
+            background: #f9fafb;
+            border: 2px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 28px 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .price-tag {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .price-amount {
+            font-size: 44px;
+            font-weight: 800;
+            color: #111827;
+            line-height: 1;
+        }
+
+        .price-period {
+            font-size: 16px;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        .user-info-box {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 12px 14px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: #4b5563;
+            word-break: break-all;
+        }
+
+        .user-info-box .label {
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 2px;
+            display: block;
+        }
+
+        .pay-btn {
+            width: 100%;
+            padding: 16px;
+            font-size: 17px;
+            font-weight: 700;
+            color: white;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 14px rgba(102, 126, 234, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-family: inherit;
+        }
+
+        .pay-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+        }
+
+        .pay-btn:active {
+            transform: translateY(0);
+        }
+
+        .security-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 14px;
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        .security-badge svg {
+            width: 16px;
+            height: 16px;
+            fill: #10b981;
+        }
+
+        .cancel-note {
+            font-size: 12px;
+            color: #9ca3af;
+            text-align: center;
+            margin-top: 8px;
+        }
+
+        .footer {
+            background: rgba(0, 0, 0, 0.2);
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 24px 0;
+            font-size: 14px;
+        }
+
+        .footer a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+            }
+
+            .nav-right {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .checkout-content {
+                grid-template-columns: 1fr;
+                padding: 30px 20px;
+                gap: 30px;
+            }
+
+            .checkout-header {
+                padding: 30px 20px;
+            }
+
+            .checkout-header h1 {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">
+                    GoWords
+                    <img src="logo.png" alt="GoWords" style="height: 48px; width: auto; vertical-align: middle;">
+                </a>
+                <div class="nav-right">
+                    <div class="nav-links">
+                        <a href="index.html#features" data-key="navFeatures">Features</a>
+                        <a href="index.html#how-it-works" data-key="navHowItWorks">How it works</a>
+                        <a href="privacy.html" data-key="navPrivacy">Privacy Policy</a>
+                    </div>
+                    <div class="lang-switcher">
+                        <button class="lang-btn active" data-lang="en">EN</button>
+                        <button class="lang-btn" data-lang="ru">RU</button>
+                        <button class="lang-btn" data-lang="sr">SR</button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="checkout-wrapper">
+                <div class="checkout-header">
+                    <span class="badge-pro" data-key="proBadge">Premium Access</span>
+                    <h1 data-key="pageTitle">GoWords Pro</h1>
+                    <p data-key="pageSubtitle">Unlock unlimited decks, AI assistant, and advanced spaced repetition.</p>
+                </div>
+                
+                <div class="checkout-content">
+                    <div class="plan-details">
+                        <h2 data-key="whatsIncluded">What is included in Pro:</h2>
+                        <ul class="features-list">
+                            <li data-key="feature1">Unlimited decks & vocabulary cards</li>
+                            <li data-key="feature2">Smart spaced repetition algorithm</li>
+                            <li data-key="feature3">AI-powered word generation & examples</li>
+                            <li data-key="feature4">Native speaker audio pronunciation</li>
+                            <li data-key="feature5">Cloud sync across all your devices</li>
+                            <li data-key="feature6">Priority customer support</li>
+                        </ul>
+                    </div>
+
+                    <div class="card-box">
+                        <div>
+                            <div class="price-tag">
+                                <span class="price-amount">$10</span>
+                                <span class="price-period" data-key="pricePeriod">/ month</span>
+                            </div>
+
+                            <div id="userInfoContainer" class="user-info-box" style="display: none;">
+                                <span class="label" data-key="accountLabel">Linked Account:</span>
+                                <div id="accountDisplay"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <button id="pay-button" class="pay-btn">
+                                <span data-key="subscribeBtn">Subscribe for $10/mo</span>
+                            </button>
+
+                            <div class="security-badge">
+                                <svg viewBox="0 0 20 20">
+                                    <path d="M10 2a5 5 0 00-5 5v2a2 2 0 00-2 2v5a2 2 0 002 2h10a2 2 0 002-2v-5a2 2 0 00-2-2H7V7a3 3 0 016 0v2h2V7a5 5 0 00-5-5z"/>
+                                </svg>
+                                <span data-key="securePayment">Secure payment via Paddle</span>
+                            </div>
+                            <div class="cancel-note" data-key="cancelAnytime">Cancel anytime in 1 click</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p data-key="footerCopyright">© 2026 Mornar Labs. All rights reserved.</p>
+            <p style="margin-top: 5px;">
+                <a href="privacy.html" data-key="navPrivacy">Privacy Policy</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            en: {
+                pageTitle: "GoWords Pro",
+                pageSubtitle: "Unlock unlimited decks, AI assistant, and advanced spaced repetition.",
+                proBadge: "Premium Access",
+                navFeatures: "Features",
+                navHowItWorks: "How it works",
+                navPrivacy: "Privacy Policy",
+                whatsIncluded: "What is included in Pro:",
+                feature1: "Unlimited decks & vocabulary cards",
+                feature2: "Smart spaced repetition algorithm",
+                feature3: "AI-powered word generation & examples",
+                feature4: "Native speaker audio pronunciation",
+                feature5: "Cloud sync across all your devices",
+                feature6: "Priority customer support",
+                pricePeriod: "/ month",
+                accountLabel: "Linked Account:",
+                subscribeBtn: "Subscribe for $10/mo",
+                securePayment: "Secure payment via Paddle",
+                cancelAnytime: "Cancel anytime in 1 click",
+                footerCopyright: "© 2026 Mornar Labs. All rights reserved."
+            },
+            ru: {
+                pageTitle: "Подписка GoWords Pro",
+                pageSubtitle: "Откройте неограниченные колоды, помощь AI и продвинутую систему интервальных повторений.",
+                proBadge: "Премиум доступ",
+                navFeatures: "Возможности",
+                navHowItWorks: "Как это работает",
+                navPrivacy: "Политика конфиденциальности",
+                whatsIncluded: "Что входит в подписку Pro:",
+                feature1: "Неограниченное количество колод и карточек",
+                feature2: "Умный алгоритм интервальных повторений",
+                feature3: "Генерация слов и примеров с помощью AI",
+                feature4: "Озвучка слов носителями языка",
+                feature5: "Синхронизация прогресса на всех устройствах",
+                feature6: "Приоритетная поддержка пользователей",
+                pricePeriod: "/ месяц",
+                accountLabel: "Привязанный аккаунт:",
+                subscribeBtn: "Оформить подписку за $10/мес",
+                securePayment: "Безопасная оплата через Paddle",
+                cancelAnytime: "Отмена в любой момент в 1 клик",
+                footerCopyright: "© 2026 Mornar Labs. Все права защищены."
+            },
+            sr: {
+                pageTitle: "GoWords Pro pretplata",
+                pageSubtitle: "Otključajte neograničene špilove, AI asistenta i napredni sistem ponavljanja.",
+                proBadge: "Premium pristup",
+                navFeatures: "Mogućnosti",
+                navHowItWorks: "Kako radi",
+                navPrivacy: "Politika privatnosti",
+                whatsIncluded: "Šta je uključeno u Pro:",
+                feature1: "Neograničen broj špilova i kartica reči",
+                feature2: "Pametan algoritam intervalnog ponavljanja",
+                feature3: "Generisanje reči i primera uz pomoć AI-ja",
+                feature4: "Izgovor reči od strane izvornih govornika",
+                feature5: "Sinhronizacija na svim vašim uređajima",
+                feature6: "Prioritetna korisnička podrška",
+                pricePeriod: "/ mesečno",
+                accountLabel: "Povezani nalog:",
+                subscribeBtn: "Pretplatite se za $10/mes",
+                securePayment: "Sigurno plaćanje putem Paddle-a",
+                cancelAnytime: "Otkažite u bilo kom trenutku u 1 klik",
+                footerCopyright: "© 2026 Mornar Labs. Sva prava zadržana."
+            }
+        };
+
+        let currentLang = 'en';
+
+        // 1. Извлечение параметров URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const userId = urlParams.get('userId');
+        const customerEmail = urlParams.get('email');
+        const requestedLang = urlParams.get('lang');
+
+        // Отображение данных аккаунта, если переданы в параметрах
+        const userInfoContainer = document.getElementById('userInfoContainer');
+        const accountDisplay = document.getElementById('accountDisplay');
+        if (customerEmail || userId) {
+            userInfoContainer.style.display = 'block';
+            accountDisplay.textContent = customerEmail ? customerEmail : `ID: ${userId}`;
+        }
+
+        // 2. Инициализация Paddle
+        // Примечание: Для переключения на продакшен используйте live-окружение и live-токен
+        Paddle.Environment.set("sandbox");
+        Paddle.Initialize({ 
+            token: "test_3ea1711e3c54c2aa322b4c373b6" 
+        });
+
+        // 3. Обработчик клика по кнопке оплаты
+        document.getElementById('pay-button').addEventListener('click', () => {
+            const checkoutOptions = {
+                items: [
+                    { 
+                        priceId: "pri_01m0mwe5n2zq0btc69bch5xxqw", 
+                        quantity: 1 
+                    }
+                ],
+                settings: {
+                    displayMode: "overlay",
+                    theme: "light",
+                    locale: currentLang === 'sr' ? 'en' : currentLang
+                }
+            };
+
+            if (customerEmail) {
+                checkoutOptions.customer = { email: customerEmail };
+            }
+
+            if (userId) {
+                checkoutOptions.customData = { userId: userId };
+            }
+
+            Paddle.Checkout.open(checkoutOptions);
+        });
+
+        // 4. Управление языком
+        function setLanguage(lang) {
+            if (!translations[lang]) lang = 'en';
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            
+            if (lang === 'en') {
+                document.title = 'GoWords Pro - Premium Subscription';
+            } else if (lang === 'sr') {
+                document.title = 'GoWords Pro - Pretplata';
+            } else {
+                document.title = 'GoWords Pro - Оформление подписки';
+            }
+            
+            document.querySelectorAll('[data-key]').forEach(element => {
+                const key = element.getAttribute('data-key');
+                if (translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.getAttribute('data-lang');
+                setLanguage(lang);
+            });
+        });
+
+        // Начальный язык: из URL (если есть), иначе английский
+        if (requestedLang && translations[requestedLang]) {
+            setLanguage(requestedLang);
+        } else {
+            setLanguage('en');
+        }
+    </script>
+</body>
+</html>
