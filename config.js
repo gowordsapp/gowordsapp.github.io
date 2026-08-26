@@ -4,11 +4,11 @@ window.PADDLE_CONFIG = {
     environment: "sandbox",
 
     // Клиентский токен Paddle (Client-side token)
-    token: "test_3ea1711e3c54c2aa322b4c373b6",
+    token: "live_78b6c88d3336ba0bd0c77fead59",
 
     // Идентификаторы цен / продуктов в Paddle
     prices: {
-        proMonthly: "pri_01m0mwe5n2zq0btc69bch5xxqw"
+        proMonthly: "pri_01m0ycsmsws56rtyrb99zzv2kg"
     }
 };
 
