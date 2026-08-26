@@ -1,0 +1,448 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoWords - Terms of Service & Refund Policy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: #f8fafc;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 24px;
+            width: 100%;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4b5563;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .lang-switcher {
+            display: flex;
+            gap: 6px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            padding: 5px 10px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 16px;
+            transition: all 0.2s;
+            color: #64748b;
+            font-family: inherit;
+        }
+
+        .lang-btn:hover {
+            background: #f1f5f9;
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        main {
+            flex: 1;
+            padding-top: 120px;
+            padding-bottom: 70px;
+        }
+
+        .doc-card {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05);
+            padding: 50px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .doc-header {
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 25px;
+            margin-bottom: 35px;
+        }
+
+        .doc-header h1 {
+            font-size: 32px;
+            color: #1e293b;
+            margin-bottom: 8px;
+        }
+
+        .doc-header .doc-meta {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .doc-content h2 {
+            font-size: 22px;
+            color: #1e293b;
+            margin-top: 35px;
+            margin-bottom: 14px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .doc-content p {
+            margin-bottom: 16px;
+            color: #475569;
+            font-size: 15px;
+        }
+
+        .doc-content ul {
+            margin-bottom: 20px;
+            padding-left: 24px;
+            color: #475569;
+        }
+
+        .doc-content li {
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        .highlight-box {
+            background: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 16px 20px;
+            border-radius: 0 12px 12px 0;
+            margin: 24px 0;
+            font-size: 14px;
+            color: #166534;
+        }
+
+        .company-box {
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .company-box h3 {
+            font-size: 16px;
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            background: #1e293b;
+            color: #94a3b8;
+            padding: 35px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .footer a {
+            color: #cbd5e1;
+            text-decoration: underline;
+            margin: 0 10px;
+        }
+
+        .footer a:hover {
+            color: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            .doc-card {
+                padding: 30px 20px;
+            }
+
+            .doc-header h1 {
+                font-size: 26px;
+            }
+
+            .nav {
+                flex-direction: column;
+            }
+
+            .nav-right {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">
+                    GoWords
+                    <img src="logo.png" alt="GoWords" style="height: 44px; width: auto; vertical-align: middle;">
+                </a>
+                <div class="nav-right">
+                    <div class="nav-links">
+                        <a href="index.html#features" data-key="navFeatures">Features</a>
+                        <a href="index.html#pricing" data-key="navPricing">Pricing</a>
+                        <a href="privacy.html" data-key="navPrivacy">Privacy Policy</a>
+                    </div>
+                    <div class="lang-switcher">
+                        <button class="lang-btn active" data-lang="en">EN</button>
+                        <button class="lang-btn" data-lang="ru">RU</button>
+                        <button class="lang-btn" data-lang="sr">SR</button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="doc-card">
+                <div class="doc-header">
+                    <h1 data-key="docTitle">Terms of Service & Refund Policy</h1>
+                    <div class="doc-meta" data-key="docEffective">Effective date: August 2026</div>
+                </div>
+
+                <div class="doc-content">
+                    <div class="highlight-box" data-key="merchantNote">
+                        <strong>Merchant of Record:</strong> Our order process is conducted by our online reseller Paddle.com. Paddle.com is the Merchant of Record for all our orders. Paddle provides all customer service inquiries and handles returns.
+                    </div>
+
+                    <h2 data-key="sec1Title">1. Agreement to Terms</h2>
+                    <p data-key="sec1Desc">These Terms of Service ("Terms") constitute a legally binding agreement between you and SOLOSBOR DOO ("Company", "we", "us", or "our"), concerning your access to and use of the GoWords mobile application and the website.</p>
+
+                    <h2 data-key="sec2Title">2. Subscription and Billing</h2>
+                    <p data-key="sec2P1">GoWords provides a digital subscription ("GoWords Pro") priced at <strong>$10 per month</strong> (or equivalent in local currency). Features included in the Pro subscription:</p>
+                    <ul>
+                        <li data-key="feat1">Unlimited flashcard decks and word items</li>
+                        <li data-key="feat2">Smart spaced repetition algorithm</li>
+                        <li data-key="feat3">AI-powered word definitions and examples</li>
+                        <li data-key="feat4">Audio pronunciation by native speakers</li>
+                        <li data-key="feat5">Cloud synchronization across devices</li>
+                    </ul>
+                    <p data-key="sec2P2"><strong>Billing Cycle:</strong> Subscriptions are billed in advance on a recurring monthly cycle. Your payment method will be charged automatically at the start of each billing period unless cancelled.</p>
+
+                    <h2 data-key="sec3Title">3. Cancellation Policy</h2>
+                    <p data-key="sec3Desc">You can cancel your GoWords Pro subscription at any time. Cancellation takes effect at the end of the current paid billing cycle, and you will retain access to Pro features until that date. To cancel, use the subscription management link in your Paddle receipt email or contact our support.</p>
+
+                    <h2 data-key="sec4Title">4. Refund Policy (Money-Back Guarantee)</h2>
+                    <p data-key="sec4P1">We want you to be completely satisfied with GoWords. In accordance with Paddle's standard consumer protection policies:</p>
+                    <ul>
+                        <li data-key="ref1"><strong>14-Day Refund Period:</strong> You are eligible for a full refund within 14 days of your initial purchase if you are not satisfied with the service.</li>
+                        <li data-key="ref2"><strong>How to request a refund:</strong> Contact Paddle support via your email receipt, or write to our support team at <a href="mailto:gowordsapp@gmail.com">gowordsapp@gmail.com</a> with your order number.</li>
+                        <li data-key="ref3">Refunds are processed to the original payment method within 5–10 business days.</li>
+                    </ul>
+
+                    <h2 data-key="sec5Title">5. Acceptable Use and Intellectual Property</h2>
+                    <p data-key="sec5Desc">All content, features, and functionality of GoWords (including software, UI designs, algorithms, text, and graphics) are the exclusive property of SOLOSBOR DOO and are protected by international copyright and intellectual property laws.</p>
+
+                    <h2 data-key="sec6Title">6. Contact Information & Legal Entity</h2>
+                    <div class="company-box">
+                        <h3 data-key="compInfoTitle">Service Provider Information:</h3>
+                        <p><strong>Company Name:</strong> SOLOSBOR DOO</p>
+                        <p><strong>Support Email:</strong> <a href="mailto:gowordsapp@gmail.com">gowordsapp@gmail.com</a></p>
+                        <p><strong>Merchant of Record & Payments:</strong> Paddle.com Market Ltd, Judd House, 18-29 Mora Street, London, EC1V 8BT, United Kingdom</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p data-key="footerCopyright">© 2026 SOLOSBOR DOO / Mornar Labs. All rights reserved.</p>
+            <p style="margin-top: 10px;">
+                <a href="privacy.html" data-key="navPrivacy">Privacy Policy</a> |
+                <a href="terms.html" data-key="navTerms">Terms of Service & Refunds</a> |
+                <a href="index.html">Home</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            en: {
+                navFeatures: "Features",
+                navPricing: "Pricing",
+                navPrivacy: "Privacy Policy",
+                navTerms: "Terms of Service & Refunds",
+                docTitle: "Terms of Service & Refund Policy",
+                docEffective: "Effective date: August 2026",
+                merchantNote: "<strong>Merchant of Record:</strong> Our order process is conducted by our online reseller Paddle.com. Paddle.com is the Merchant of Record for all our orders. Paddle provides customer service inquiries and handles returns.",
+                sec1Title: "1. Agreement to Terms",
+                sec1Desc: "These Terms of Service ('Terms') constitute a legally binding agreement between you and SOLOSBOR DOO ('Company', 'we', 'us', or 'our'), concerning your access to and use of the GoWords mobile application and website.",
+                sec2Title: "2. Subscription and Billing",
+                sec2P1: "GoWords provides a digital subscription ('GoWords Pro') priced at $10 per month (or equivalent in local currency). Features included in the Pro subscription:",
+                feat1: "Unlimited flashcard decks and word items",
+                feat2: "Smart spaced repetition algorithm",
+                feat3: "AI-powered word definitions and examples",
+                feat4: "Audio pronunciation by native speakers",
+                feat5: "Cloud synchronization across devices",
+                sec2P2: "<strong>Billing Cycle:</strong> Subscriptions are billed in advance on a recurring monthly cycle. Your payment method will be charged automatically at the start of each billing period unless cancelled.",
+                sec3Title: "3. Cancellation Policy",
+                sec3Desc: "You can cancel your GoWords Pro subscription at any time. Cancellation takes effect at the end of the current paid billing cycle, and you will retain access to Pro features until that date. To cancel, use the subscription management link in your Paddle receipt email or contact our support.",
+                sec4Title: "4. Refund Policy (Money-Back Guarantee)",
+                sec4P1: "We want you to be completely satisfied with GoWords. In accordance with Paddle's standard consumer protection policies:",
+                ref1: "<strong>14-Day Refund Period:</strong> You are eligible for a full refund within 14 days of your initial purchase if you are not satisfied with the service.",
+                ref2: "<strong>How to request a refund:</strong> Contact Paddle support via your email receipt, or write to our support team at gowordsapp@gmail.com with your order number.",
+                ref3: "Refunds are processed to the original payment method within 5–10 business days.",
+                sec5Title: "5. Acceptable Use and Intellectual Property",
+                sec5Desc: "All content, features, and functionality of GoWords (including software, UI designs, algorithms, text, and graphics) are the exclusive property of SOLOSBOR DOO and are protected by international copyright laws.",
+                sec6Title: "6. Contact Information & Legal Entity",
+                compInfoTitle: "Service Provider Information:",
+                footerCopyright: "© 2026 SOLOSBOR DOO / Mornar Labs. All rights reserved."
+            },
+            ru: {
+                navFeatures: "Возможности",
+                navPricing: "Тарифы",
+                navPrivacy: "Политика конфиденциальности",
+                navTerms: "Условия использования и возврат",
+                docTitle: "Условия использования и правила возврата",
+                docEffective: "Действует с: Август 2026",
+                merchantNote: "<strong>Официальный продавец (Merchant of Record):</strong> Обработка платежей осуществляется нашим торговым партнером Paddle.com. Paddle.com является официальным продавцом (Merchant of Record) для всех заказов, обеспечивает клиентскую поддержку по платежам и производит возвраты.",
+                sec1Title: "1. Принятие условий",
+                sec1Desc: "Настоящие Условия использования представляют собой юридически обязывающий договор между вами и SOLOSBOR DOO («Компания», «мы»), регулирующий использование приложения и сайта GoWords.",
+                sec2Title: "2. Подписка и оплата",
+                sec2P1: "GoWords предоставляет цифровую подписку («GoWords Pro») стоимостью $10 в месяц. Возможности, входящие в подписку Pro:",
+                feat1: "Неограниченное количество колод и карточек со словами",
+                feat2: "Умный алгоритм интервальных повторений",
+                feat3: "Генерация примеров и переводов с помощью AI",
+                feat4: "Озвучка слов носителями языка",
+                feat5: "Облачная синхронизация на всех устройствах",
+                sec2P2: "<strong>Периодичность списания:</strong> Подписка оплачивается авансом ежемесячно. Списание происходит автоматически в начале каждого расчетного периода до момента отмены.",
+                sec3Title: "3. Отмена подписки",
+                sec3Desc: "Вы можете отменить подписку GoWords Pro в любой момент в 1 клик. Отмена вступит в силу в конце оплаченного периода, и вы сохраните доступ к Pro до этой даты. Для отмены используйте ссылку в письме с чеком от Paddle или свяжитесь с нашей поддержкой.",
+                sec4Title: "4. Политика возврата средств (14-дневная гарантия)",
+                sec4P1: "Мы заботимся об удобстве пользователей. В соответствии с правилами Paddle и стандартами защиты прав потребителей:",
+                ref1: "<strong>14 дней на возврат:</strong> Вы имеете право на полный возврат средств в течение 14 дней с момента первоначальной покупки.",
+                ref2: "<strong>Как запросить возврат:</strong> Перейдите по ссылке в чеке Paddle или напишите нам на gowordsapp@gmail.com с указанием номера заказа.",
+                ref3: "Возврат осуществляется на исходный способ оплаты в течение 5–10 рабочих дней.",
+                sec5Title: "5. Интеллектуальная собственность",
+                sec5Desc: "Весь контент, программный код, дизайн и алгоритмы GoWords являются исключительной собственностью SOLOSBOR DOO и защищены международным законодательством.",
+                sec6Title: "6. Юридическая информация и контакты",
+                compInfoTitle: "Информация о поставщике услуг:",
+                footerCopyright: "© 2026 SOLOSBOR DOO / Mornar Labs. Все права защищены."
+            },
+            sr: {
+                navFeatures: "Mogućnosti",
+                navPricing: "Cene",
+                navPrivacy: "Politika privatnosti",
+                navTerms: "Uslovi korišćenja i povraćaj",
+                docTitle: "Uslovi korišćenja i politika povraćaja",
+                docEffective: "Važi od: Avgust 2026",
+                merchantNote: "<strong>Trgovac (Merchant of Record):</strong> Obradu plaćanja vrši naš onlajn partner Paddle.com. Paddle.com je zvanični trgovac za sve narudžbine, pruža korisničku podršku i vrši povraćaj sredstava.",
+                sec1Title: "1. Prihvatanje uslova",
+                sec1Desc: "Ovi Uslovi korišćenja predstavljaju pravno obavezujući ugovor između vas i kompanije SOLOSBOR DOO u vezi sa korišćenjem GoWords aplikacije i veb sajta.",
+                sec2Title: "2. Pretplata i plaćanje",
+                sec2P1: "GoWords pruža digitalnu pretplatu ('GoWords Pro') po ceni od $10 mesečno. Funkcije uključene u Pro pretplatu:",
+                feat1: "Neograničen broj špilova i kartica",
+                feat2: "Pametan algoritam intervalnog ponavljanja",
+                feat3: "Generisanje primera uz pomoć AI-ja",
+                feat4: "Izgovor reči od strane izvornih govornika",
+                feat5: "Sinhronizacija u oblaku na svim uređajima",
+                sec2P2: "<strong>Obračunski period:</strong> Pretplate se naplaćuju unapred na mesečnom nivou. Vaš način plaćanja biće automatski zadužen na početku svakog perioda do otkazivanja.",
+                sec3Title: "3. Otkazivanje pretplate",
+                sec3Desc: "Možete otkazati svoju GoWords Pro pretplatu u bilo kom trenutku. Otkazivanje stupa na snagu na kraju tekućeg plaćenog perioda. Za otkazivanje koristite link u email računu od Paddle-a ili kontaktirajte podršku.",
+                sec4Title: "4. Politika povraćaja novca (14 dana)",
+                sec4P1: "U skladu sa standardnim pravilima kompanije Paddle o zaštiti potrošača:",
+                ref1: "<strong>Rok od 14 dana:</strong> Imate pravo na puni povraćaj sredstava u roku od 14 dana od kupovine ukoliko niste zadovoljni.",
+                ref2: "<strong>Kako zatražiti povraćaj:</strong> Kontaktirajte Paddle podršku putem email računa ili pišite na gowordsapp@gmail.com.",
+                ref3: "Povraćaj se vrši na isti način plaćanja u roku od 5–10 radnih dana.",
+                sec5Title: "5. Intelektualna svojina",
+                sec5Desc: "Sav sadržaj, dizajn, softver i algoritmi su isključivo vlasništvo kompanije SOLOSBOR DOO.",
+                sec6Title: "6. Informacije o kompaniji",
+                compInfoTitle: "Podaci o pružaocu usluge:",
+                footerCopyright: "© 2026 SOLOSBOR DOO / Mornar Labs. Sva prava zadržana."
+            }
+        };
+
+        let currentLang = 'en';
+
+        function setLanguage(lang) {
+            if (!translations[lang]) lang = 'en';
+            currentLang = lang;
+            document.documentElement.lang = lang;
+
+            document.querySelectorAll('[data-key]').forEach(element => {
+                const key = element.getAttribute('data-key');
+                if (translations[lang][key]) {
+                    element.innerHTML = translations[lang][key];
+                }
+            });
+
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.getAttribute('data-lang');
+                setLanguage(lang);
+            });
+        });
+
+        setLanguage('en');
+    </script>
+</body>
+</html>
