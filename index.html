@@ -437,15 +437,74 @@
             flex-wrap: wrap;
         }
 
+        .support-section {
+            background: #f8f9fa;
+            padding: 80px 0;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .support-card {
+            background: white;
+            padding: 35px 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid #e5e7eb;
+        }
+
+        .support-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #1f2937;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .support-card p {
+            color: #4b5563;
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        .support-card a {
+            color: #4f46e5;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .support-card a:hover {
+            text-decoration: underline;
+        }
+
         .footer {
-            background: #2d3748;
-            color: white;
-            padding: 40px 0;
+            background: #1e293b;
+            color: #94a3b8;
+            padding: 50px 0 40px;
             text-align: center;
+            border-top: 1px solid #334155;
+        }
+
+        .footer-org {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 16px 20px;
+            max-width: 600px;
+            margin: 0 auto 24px;
+            font-size: 14px;
+            color: #e2e8f0;
         }
 
         .footer a {
-            color: #a0aec0;
+            color: #cbd5e1;
             text-decoration: underline;
             transition: color 0.3s;
         }
@@ -516,6 +575,7 @@
                         <a href="#features" data-key="navFeatures">Features</a>
                         <a href="#how-it-works" data-key="navHowItWorks">How it works</a>
                         <a href="#pricing" data-key="navPricing">Pricing</a>
+                        <a href="#support" data-key="navSupport">Support</a>
                         <a href="privacy.html" data-key="navPrivacy">Privacy Policy</a>
                     </div>
                     <div class="lang-switcher">
@@ -651,18 +711,43 @@
                 </div>
             </div>
         </section>
+
+        <!-- Support & Organization Section -->
+        <section id="support" class="support-section">
+            <div class="container">
+                <h2 class="section-title" data-key="supportTitle">Customer Support & Organization Details</h2>
+                <div class="support-grid">
+                    <div class="support-card">
+                        <h3 data-key="supportContactHead">💬 Contact Support</h3>
+                        <p data-key="supportContactDesc">Have a question or need assistance with GoWords? Our support team is here to help you.</p>
+                        <p><strong>Email:</strong> <a href="mailto:info@mornar-labs.com">info@mornar-labs.com</a></p>
+                        <p><strong>Account Deletion:</strong> <a href="delete_account.html" data-key="deleteAccountLink">Data & Account Deletion Request</a></p>
+                        <p data-key="supportResponseTime">We usually respond within 24 hours.</p>
+                    </div>
+                    <div class="support-card">
+                        <h3 data-key="legalEntityHead">🏢 Legal Entity & Developer</h3>
+                        <p><strong>Organization / Legal Entity:</strong> SOLOSBOR DOO</p>
+                        <p><strong>Brand / Trade Name:</strong> Mornar Labs</p>
+                        <p><strong>Application:</strong> GoWords - Language Learning Flashcards</p>
+                        <p><strong>Support & Inquiries:</strong> <a href="mailto:info@mornar-labs.com">info@mornar-labs.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
         <div class="container">
+            <div class="footer-org">
+                <p><strong data-key="legalEntityLabel">Legal Entity / Organization:</strong> SOLOSBOR DOO (Mornar Labs)</p>
+                <p style="margin-top: 6px;"><span data-key="footerSupportLabel">Customer Support:</span> <a href="mailto:info@mornar-labs.com" style="color: #cbd5e1; font-weight: 600;">info@mornar-labs.com</a></p>
+            </div>
             <p data-key="footerCopyright">© 2026 SOLOSBOR DOO / Mornar Labs. All rights reserved.</p>
             <p style="margin-top: 10px; opacity: 0.8;" data-key="footerTagline">GoWords - learn languages with joy</p>
             <p style="margin-top: 15px;">
                 <a href="privacy.html" data-key="navPrivacy">Privacy Policy</a> |
-                <a href="terms.html" data-key="navTerms">Terms of Service & Refunds</a>
-            </p>
-            <p style="margin-top: 10px; font-size: 13px; opacity: 0.7;">
-                Support: <a href="mailto:gowordsapp@gmail.com" style="color: #cbd5e1;">gowordsapp@gmail.com</a>
+                <a href="terms.html" data-key="navTerms">Terms of Service & Refunds</a> |
+                <a href="delete_account.html" data-key="navDeleteAccount">Account Deletion</a>
             </p>
         </div>
     </footer>
@@ -712,13 +797,24 @@
                 startLearningTitle: "Start learning today",
                 startLearningSubtitle: "Boost your vocabulary faster with GoWords spaced repetition and AI assistant",
                 openCheckout: "Go to Checkout →",
-                footerCopyright: "© 2026 Mornar Labs. All rights reserved.",
+                navSupport: "Support",
+                supportTitle: "Customer Support & Organization Details",
+                supportContactHead: "💬 Contact Support",
+                supportContactDesc: "Have a question or need assistance with GoWords? Our support team is here to help you.",
+                deleteAccountLink: "Data & Account Deletion Request",
+                supportResponseTime: "We usually respond within 24 hours.",
+                legalEntityHead: "🏢 Legal Entity & Developer",
+                legalEntityLabel: "Legal Entity / Organization:",
+                footerSupportLabel: "Customer Support:",
+                navDeleteAccount: "Account Deletion",
+                footerCopyright: "© 2026 SOLOSBOR DOO / Mornar Labs. All rights reserved.",
                 footerTagline: "GoWords - learn languages with joy"
             },
             ru: {
                 navFeatures: "Возможности",
                 navHowItWorks: "Как работает",
                 navPricing: "Тарифы",
+                navSupport: "Поддержка",
                 navPrivacy: "Политика конфиденциальности",
                 navTerms: "Условия использования и возврат",
                 heroTitle: "Учите языки с GoWords",
@@ -758,6 +854,15 @@
                 startLearningTitle: "Начните учить слова уже сегодня",
                 startLearningSubtitle: "Расширяйте словарный запас быстрее с интервальными повторениями и AI-ассистентом GoWords",
                 openCheckout: "Перейти к оплате →",
+                supportTitle: "Служба поддержки и юридическая информация",
+                supportContactHead: "💬 Служба поддержки",
+                supportContactDesc: "Есть вопросы или нужна помощь по работе с GoWords? Наша команда всегда готова помочь.",
+                deleteAccountLink: "Запрос на удаление данных и аккаунта",
+                supportResponseTime: "Обычно мы отвечаем в течение 24 часов.",
+                legalEntityHead: "🏢 Юридическое лицо и разработчик",
+                legalEntityLabel: "Юридическое лицо / Организация:",
+                footerSupportLabel: "Служба поддержки:",
+                navDeleteAccount: "Удаление аккаунта",
                 footerCopyright: "© 2026 SOLOSBOR DOO / Mornar Labs. Все права защищены.",
                 footerTagline: "GoWords - учите языки с удовольствием"
             },
@@ -765,6 +870,7 @@
                 navFeatures: "Mogućnosti",
                 navHowItWorks: "Kako radi",
                 navPricing: "Cene",
+                navSupport: "Podrška",
                 navPrivacy: "Politika privatnosti",
                 navTerms: "Uslovi korišćenja i povraćaj",
                 heroTitle: "Učite jezike sa GoWords",
@@ -804,7 +910,16 @@
                 startLearningTitle: "Započnite učenje već danas",
                 startLearningSubtitle: "Ubrzajte učenje reči uz sistem intervalnih ponavljanja i GoWords AI asistenta",
                 openCheckout: "Idi na plaćanje →",
-                footerCopyright: "© 2026 Mornar Labs. Sva права zadržana.",
+                supportTitle: "Korisnička podrška i podaci o organizaciji",
+                supportContactHead: "💬 Korisnička podrška",
+                supportContactDesc: "Imate pitanja ili vam je potrebna pomoć sa GoWords aplikacijom? Naš tim je tu za vas.",
+                deleteAccountLink: "Zahtev za brisanje naloga i podataka",
+                supportResponseTime: "Obično odgovaramo u roku od 24 sata.",
+                legalEntityHead: "🏢 Pravno lice i programer",
+                legalEntityLabel: "Pravno lice / Organizacija:",
+                footerSupportLabel: "Korisnička podrška:",
+                navDeleteAccount: "Brisanje naloga",
+                footerCopyright: "© 2026 SOLOSBOR DOO / Mornar Labs. Sva prava zadržana.",
                 footerTagline: "GoWords - učite jezike sa zadovoljstvom"
             }
         };
