@@ -281,6 +281,26 @@
             box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
         }
 
+        .pay-btn.disabled, .pay-btn:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .payment-maintenance-notice {
+            background: #fffbeb;
+            border: 1px solid #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 12px 14px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 13px;
+            color: #92400e;
+            text-align: left;
+            line-height: 1.4;
+        }
+
         .pay-btn:active {
             transform: translateY(0);
         }
@@ -424,8 +444,13 @@
                         </div>
 
                         <div>
-                            <button id="pay-button" class="pay-btn">
-                                <span data-key="subscribeBtn">Subscribe for $10/mo</span>
+                            <div class="payment-maintenance-notice">
+                                <strong data-key="paymentNoticeTitle">⚠️ Online payment temporarily unavailable</strong><br>
+                                <span data-key="paymentNoticeDesc">Payment processing is temporarily paused for technical maintenance. Please check back later or contact support.</span>
+                            </div>
+
+                            <button id="pay-button" class="pay-btn disabled" disabled>
+                                <span data-key="subscribeBtnUnavailable">Payment temporarily unavailable</span>
                             </button>
 
                             <div class="security-badge">
@@ -475,6 +500,9 @@
                 pricePeriod: "/ month",
                 accountLabel: "Linked Account:",
                 subscribeBtn: "Subscribe for $10/mo",
+                paymentNoticeTitle: "⚠️ Online payment temporarily unavailable",
+                paymentNoticeDesc: "Payment processing is temporarily paused for technical maintenance. Please check back later or contact support.",
+                subscribeBtnUnavailable: "Payment temporarily unavailable",
                 securePayment: "Secure payment via Paddle",
                 cancelAnytime: "Cancel anytime in 1 click",
                 footerCopyright: "© 2026 SOLOSBOR DOO / Mornar Labs. All rights reserved."
@@ -497,6 +525,9 @@
                 pricePeriod: "/ месяц",
                 accountLabel: "Привязанный аккаунт:",
                 subscribeBtn: "Оформить подписку за $10/мес",
+                paymentNoticeTitle: "⚠️ Оплата временно недоступна",
+                paymentNoticeDesc: "Прием платежей временно приостановлен по техническим причинам. Пожалуйста, попробуйте позже или свяжитесь с поддержкой.",
+                subscribeBtnUnavailable: "Оплата временно недоступна",
                 securePayment: "Безопасная оплата через Paddle",
                 cancelAnytime: "Отмена в любой момент в 1 клик",
                 footerCopyright: "© 2026 SOLOSBOR DOO / Mornar Labs. Все права защищены."
@@ -519,9 +550,12 @@
                 pricePeriod: "/ mesečno",
                 accountLabel: "Povezani nalog:",
                 subscribeBtn: "Pretplatite se za $10/mes",
+                paymentNoticeTitle: "⚠️ Plaćanje je privremeno nedostupno",
+                paymentNoticeDesc: "Obrada plaćanja je privremeno obustavljena iz tehničkih razloga. Molimo pokušajte ponovo kasnije ili kontaktirajte podršku.",
+                subscribeBtnUnavailable: "Plaćanje privremeno nedostupno",
                 securePayment: "Sigurno plaćanje putem Paddle-a",
                 cancelAnytime: "Otkažite u bilo kom trenutku u 1 klik",
-                footerCopyright: "© 2026 Mornar Labs. Sva prava zadržana."
+                footerCopyright: "© 2026 SOLOSBOR DOO / Mornar Labs. Sva prava zadržana."
             }
         };
 

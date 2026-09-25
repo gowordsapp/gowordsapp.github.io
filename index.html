@@ -386,6 +386,26 @@
             box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
         }
 
+        .pricing-pay-btn.disabled, .pricing-pay-btn:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .payment-maintenance-notice {
+            background: #fffbeb;
+            border: 1px solid #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 12px 14px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 13px;
+            color: #92400e;
+            text-align: left;
+            line-height: 1.4;
+        }
+
         .pricing-security-badge {
             display: flex;
             align-items: center;
@@ -683,8 +703,13 @@
                             </div>
 
                             <div>
-                                <button id="pay-button" class="pricing-pay-btn">
-                                    <span data-key="subscribeBtn">Subscribe for $10/mo</span>
+                                <div class="payment-maintenance-notice">
+                                    <strong data-key="paymentNoticeTitle">⚠️ Online payment temporarily unavailable</strong><br>
+                                    <span data-key="paymentNoticeDesc">Payment processing is temporarily paused for technical maintenance. Please check back later or contact support.</span>
+                                </div>
+
+                                <button id="pay-button" class="pricing-pay-btn disabled" disabled>
+                                    <span data-key="subscribeBtnUnavailable">Payment temporarily unavailable</span>
                                 </button>
 
                                 <div class="pricing-security-badge">
@@ -798,6 +823,9 @@
                 startLearningSubtitle: "Boost your vocabulary faster with GoWords spaced repetition and AI assistant",
                 openCheckout: "Go to Checkout →",
                 navSupport: "Support",
+                paymentNoticeTitle: "⚠️ Online payment temporarily unavailable",
+                paymentNoticeDesc: "Payment processing is temporarily paused for technical maintenance. Please check back later or contact support.",
+                subscribeBtnUnavailable: "Payment temporarily unavailable",
                 supportTitle: "Customer Support & Organization Details",
                 supportContactHead: "💬 Contact Support",
                 supportContactDesc: "Have a question or need assistance with GoWords? Our support team is here to help you.",
@@ -854,6 +882,9 @@
                 startLearningTitle: "Начните учить слова уже сегодня",
                 startLearningSubtitle: "Расширяйте словарный запас быстрее с интервальными повторениями и AI-ассистентом GoWords",
                 openCheckout: "Перейти к оплате →",
+                paymentNoticeTitle: "⚠️ Оплата временно недоступна",
+                paymentNoticeDesc: "Прием платежей временно приостановлен по техническим причинам. Пожалуйста, попробуйте позже или свяжитесь с поддержкой.",
+                subscribeBtnUnavailable: "Оплата временно недоступна",
                 supportTitle: "Служба поддержки и юридическая информация",
                 supportContactHead: "💬 Служба поддержки",
                 supportContactDesc: "Есть вопросы или нужна помощь по работе с GoWords? Наша команда всегда готова помочь.",
@@ -910,6 +941,9 @@
                 startLearningTitle: "Započnite učenje već danas",
                 startLearningSubtitle: "Ubrzajte učenje reči uz sistem intervalnih ponavljanja i GoWords AI asistenta",
                 openCheckout: "Idi na plaćanje →",
+                paymentNoticeTitle: "⚠️ Plaćanje je privremeno nedostupno",
+                paymentNoticeDesc: "Obrada plaćanja je privremeno obustavljena iz tehničkih razloga. Molimo pokušajte ponovo kasnije ili kontaktirajte podršku.",
+                subscribeBtnUnavailable: "Plaćanje privremeno nedostupno",
                 supportTitle: "Korisnička podrška i podaci o organizaciji",
                 supportContactHead: "💬 Korisnička podrška",
                 supportContactDesc: "Imate pitanja ili vam je potrebna pomoć sa GoWords aplikacijom? Naš tim je tu za vas.",
