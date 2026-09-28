@@ -4,10 +4,8 @@
     <meta name="google-site-verification" content="lCkwdxX7DK2ArfZxZZzPyKjYeNuBPu87TYT7OHgIDkg" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GoWords - Learn languages with flashcards</title>
-    <!-- Paddle.js v2 & Configuration -->
-    <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
-    <script src="config.js"></script>
+    <title>Mornar Labs — Software Studio & Mobile Applications</title>
+    <meta name="description" content="Mornar Labs by SOLOSBOR DOO is a software development studio creating intelligent mobile applications including GoWords and Dental Radar.">
     <style>
         * {
             margin: 0;
@@ -18,19 +16,21 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #1e293b;
+            background: #0f172a;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
+        /* Header */
         .header {
-            background: rgba(255,255,255,0.95);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: rgba(15, 23, 42, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             position: fixed;
             width: 100%;
             top: 0;
@@ -41,18 +41,45 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 18px 0;
             flex-wrap: wrap;
             gap: 15px;
         }
 
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .brand-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 20px;
+            box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+        }
+
+        .brand-text {
+            font-size: 22px;
+            font-weight: 800;
+            color: #f8fafc;
+            letter-spacing: -0.5px;
+        }
+
+        .brand-sub {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #94a3b8;
+            font-weight: 600;
         }
 
         .nav-right {
@@ -63,521 +90,544 @@
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 25px;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: #333;
+            color: #cbd5e1;
             font-weight: 500;
-            transition: color 0.3s;
+            font-size: 15px;
+            transition: color 0.2s;
         }
 
         .nav-links a:hover {
-            color: #667eea;
+            color: #38bdf8;
         }
 
         .lang-switcher {
             display: flex;
-            gap: 8px;
+            gap: 6px;
         }
 
         .lang-btn {
-            background: none;
-            border: none;
-            padding: 6px 12px;
-            font-size: 14px;
-            font-weight: 500;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 5px 11px;
+            font-size: 13px;
+            font-weight: 600;
             cursor: pointer;
-            border-radius: 20px;
-            transition: all 0.3s;
-            color: #666;
+            border-radius: 16px;
+            transition: all 0.2s;
+            color: #cbd5e1;
             font-family: inherit;
         }
 
         .lang-btn:hover {
-            background: #f0f0f0;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
         }
 
         .lang-btn.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
             color: white;
+            border-color: transparent;
         }
 
+        /* Hero */
         .hero {
-            padding: 150px 0 100px;
+            padding: 170px 0 110px;
             text-align: center;
-            color: white;
+            background: radial-gradient(circle at 50% 20%, rgba(56, 189, 248, 0.12) 0%, rgba(15, 23, 42, 0) 65%);
+        }
+
+        .company-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            color: #38bdf8;
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            letter-spacing: 0.5px;
         }
 
         .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            animation: fadeInUp 0.8s ease;
+            font-size: 52px;
+            font-weight: 800;
+            line-height: 1.15;
+            color: #ffffff;
+            margin-bottom: 22px;
+            letter-spacing: -1px;
+            max-width: 860px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, #38bdf8 0%, #a855f7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero p {
             font-size: 20px;
-            margin-bottom: 30px;
-            opacity: 0.9;
-            animation: fadeInUp 0.8s ease 0.1s both;
+            color: #94a3b8;
+            max-width: 720px;
+            margin: 0 auto 36px;
+            line-height: 1.6;
         }
 
         .hero-actions {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 16px;
             flex-wrap: wrap;
-            animation: fadeInUp 0.8s ease 0.2s both;
         }
 
-        .cta-button {
-            display: inline-block;
-            padding: 15px 40px;
-            background: white;
-            color: #667eea;
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+            color: white;
             text-decoration: none;
+            padding: 14px 32px;
             border-radius: 50px;
-            font-weight: bold;
-            font-size: 18px;
-            transition: transform 0.3s, box-shadow 0.3s;
+            font-weight: 700;
+            font-size: 16px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 20px rgba(56, 189, 248, 0.35);
         }
 
-        .cta-button:hover {
+        .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 25px rgba(56, 189, 248, 0.5);
         }
 
-        .cta-button-pro {
-            display: inline-block;
-            padding: 15px 35px;
-            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
-            color: #1f2937;
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #e2e8f0;
             text-decoration: none;
+            padding: 14px 28px;
             border-radius: 50px;
-            font-weight: 800;
-            font-size: 18px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.2s;
         }
 
-        .cta-button-pro:hover {
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: white;
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.6);
         }
 
-        .features {
-            background: white;
-            padding: 80px 0;
+        /* Products Section */
+        .products-section {
+            padding: 90px 0;
+            background: #0b1120;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-tag {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #38bdf8;
+            margin-bottom: 8px;
+            display: block;
         }
 
         .section-title {
-            text-align: center;
-            font-size: 36px;
-            margin-bottom: 50px;
-            color: #333;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .feature-card {
-            text-align: center;
-            padding: 30px;
-            border-radius: 10px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            background: #f8f9fa;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .feature-icon {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-
-        .feature-card h3 {
-            font-size: 24px;
-            margin-bottom: 15px;
-            color: #667eea;
-        }
-
-        .how-it-works {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 80px 0;
-        }
-
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
-        }
-
-        .step {
-            text-align: center;
-        }
-
-        .step-number {
-            width: 60px;
-            height: 60px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            font-weight: bold;
-            margin: 0 auto 20px;
-        }
-
-        /* Pricing Section */
-        .pricing-section {
-            background: #f8f9fa;
-            padding: 90px 0;
-        }
-
-        .pricing-wrapper {
-            max-width: 860px;
-            margin: 0 auto;
-            background: #ffffff;
-            border-radius: 24px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
-            overflow: hidden;
-            border: 1px solid #e5e7eb;
-        }
-
-        .pricing-header {
-            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-            color: white;
-            padding: 40px 30px;
-            text-align: center;
-        }
-
-        .badge-pro {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: #fff;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-        }
-
-        .pricing-header h2 {
-            font-size: 32px;
-            margin-bottom: 8px;
+            font-size: 38px;
             font-weight: 800;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+            margin-bottom: 14px;
         }
 
-        .pricing-header p {
-            font-size: 16px;
-            opacity: 0.9;
-            max-width: 600px;
+        .section-subtitle {
+            font-size: 18px;
+            color: #94a3b8;
+            max-width: 640px;
             margin: 0 auto;
         }
 
-        .pricing-body {
-            padding: 40px 35px;
+        .products-grid {
             display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 40px;
-            align-items: start;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 36px;
         }
 
-        .pricing-features h3 {
-            font-size: 20px;
-            color: #1f2937;
-            margin-bottom: 20px;
-        }
-
-        .pricing-features-list {
-            list-style: none;
-        }
-
-        .pricing-features-list li {
-            position: relative;
-            padding-left: 32px;
-            margin-bottom: 15px;
-            color: #4b5563;
-            font-size: 15px;
-            line-height: 1.5;
-        }
-
-        .pricing-features-list li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 22px;
-            height: 22px;
-            background: #e0e7ff;
-            color: #4f46e5;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 13px;
-        }
-
-        .pricing-card-box {
-            background: #f9fafb;
-            border: 2px solid #e5e7eb;
-            border-radius: 16px;
-            padding: 28px 24px;
+        .product-card {
+            background: #1e293b;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px 36px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            height: 100%;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+            position: relative;
+            overflow: hidden;
         }
 
-        .pricing-price-tag {
-            text-align: center;
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #38bdf8, #818cf8);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .product-card.featured::before {
+            opacity: 1;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-color: rgba(56, 189, 248, 0.4);
+        }
+
+        .product-badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 12px;
+            border-radius: 12px;
             margin-bottom: 20px;
         }
 
-        .pricing-price-amount {
-            font-size: 46px;
-            font-weight: 800;
-            color: #111827;
-            line-height: 1;
+        .badge-gowords {
+            background: rgba(99, 102, 241, 0.15);
+            color: #a5b4fc;
+            border: 1px solid rgba(99, 102, 241, 0.3);
         }
 
-        .pricing-price-period {
-            font-size: 16px;
-            color: #6b7280;
-            font-weight: 500;
+        .badge-radar {
+            background: rgba(14, 165, 233, 0.15);
+            color: #7dd3fc;
+            border: 1px solid rgba(14, 165, 233, 0.3);
         }
 
-        .pricing-pay-btn {
-            width: 100%;
-            padding: 16px;
-            font-size: 17px;
-            font-weight: 700;
-            color: white;
+        .product-icon-wrap {
+            width: 72px;
+            height: 72px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 22px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        .gowords-icon {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 14px rgba(102, 126, 234, 0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            font-family: inherit;
         }
 
-        .pricing-pay-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+        .radar-icon {
+            background: linear-gradient(135deg, #061A24 0%, #0284c7 100%);
+            color: white;
+            font-size: 32px;
         }
 
-        .pricing-pay-btn.disabled, .pricing-pay-btn:disabled {
-            background: #9ca3af;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
+        .product-title {
+            font-size: 26px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 12px;
         }
 
-        .payment-maintenance-notice {
-            background: #fffbeb;
-            border: 1px solid #fef3c7;
-            border-left: 4px solid #f59e0b;
-            padding: 12px 14px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            font-size: 13px;
-            color: #92400e;
-            text-align: left;
-            line-height: 1.4;
+        .product-desc {
+            font-size: 15px;
+            color: #94a3b8;
+            line-height: 1.6;
+            margin-bottom: 24px;
         }
 
-        .pricing-security-badge {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 14px;
-            font-size: 12px;
-            color: #6b7280;
-        }
-
-        .pricing-security-badge svg {
-            width: 16px;
-            height: 16px;
-            fill: #10b981;
-        }
-
-        .pricing-cancel-note {
-            font-size: 12px;
-            color: #9ca3af;
-            text-align: center;
-            margin-top: 8px;
-        }
-
-        .app-cta {
-            background: white;
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        .app-cta h2 {
-            font-size: 36px;
-            margin-bottom: 16px;
-            color: #1f2937;
-        }
-
-        .app-cta p {
-            font-size: 18px;
+        .product-features {
+            list-style: none;
             margin-bottom: 30px;
-            color: #6b7280;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
-        .app-cta-buttons {
+        .product-features li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 10px;
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        .product-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #38bdf8;
+            font-weight: bold;
+        }
+
+        .card-actions {
+            margin-top: auto;
             display: flex;
-            justify-content: center;
-            gap: 20px;
+            gap: 12px;
             flex-wrap: wrap;
         }
 
-        .support-section {
-            background: #f8f9fa;
-            padding: 80px 0;
-            border-top: 1px solid #e5e7eb;
+        .btn-card {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
         }
 
-        .support-grid {
+        .btn-card-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 4px 14px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-card-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .btn-card-radar {
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+            color: white;
+            box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
+        }
+
+        .btn-card-radar:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(2, 132, 199, 0.6);
+        }
+
+        .btn-card-sub {
+            background: rgba(255, 255, 255, 0.06);
+            color: #cbd5e1;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-card-sub:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: white;
+        }
+
+        /* About / Organization Section */
+        .about-section {
+            padding: 90px 0;
+            background: #0f172a;
+        }
+
+        .about-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            max-width: 960px;
-            margin: 0 auto;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 50px;
+            align-items: center;
         }
 
-        .support-card {
-            background: white;
-            padding: 35px 30px;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-            border: 1px solid #e5e7eb;
+        .about-text h2 {
+            font-size: 34px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 20px;
+            line-height: 1.2;
         }
 
-        .support-card h3 {
-            font-size: 22px;
-            margin-bottom: 15px;
-            color: #1f2937;
+        .about-text p {
+            color: #94a3b8;
+            font-size: 16px;
+            margin-bottom: 18px;
+            line-height: 1.7;
+        }
+
+        .company-info-card {
+            background: #1e293b;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 32px 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .company-info-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 18px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        .support-card p {
-            color: #4b5563;
-            margin-bottom: 12px;
-            font-size: 15px;
+        .info-row {
+            margin-bottom: 14px;
+            font-size: 14px;
         }
 
-        .support-card a {
-            color: #4f46e5;
+        .info-label {
+            color: #64748b;
             font-weight: 600;
+            display: block;
+            margin-bottom: 2px;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+        }
+
+        .info-val {
+            color: #f1f5f9;
+            font-weight: 500;
+        }
+
+        .info-val a {
+            color: #38bdf8;
             text-decoration: none;
         }
 
-        .support-card a:hover {
+        .info-val a:hover {
             text-decoration: underline;
         }
 
-        .footer {
-            background: #1e293b;
-            color: #94a3b8;
-            padding: 50px 0 40px;
-            text-align: center;
-            border-top: 1px solid #334155;
+        /* Support Section */
+        .support-section {
+            padding: 80px 0;
+            background: #0b1120;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .footer-org {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 16px 20px;
-            max-width: 600px;
-            margin: 0 auto 24px;
+        .support-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 28px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .support-box {
+            background: #1e293b;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 18px;
+            padding: 30px 26px;
+            text-align: center;
+        }
+
+        .support-box-icon {
+            font-size: 34px;
+            margin-bottom: 14px;
+        }
+
+        .support-box h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .support-box p {
             font-size: 14px;
+            color: #94a3b8;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .support-box a {
+            color: #38bdf8;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .support-box a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            background: #060911;
+            color: #64748b;
+            padding: 50px 0 35px;
+            text-align: center;
+            font-size: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-entity {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 12px;
+            padding: 14px 22px;
+            display: inline-block;
+            margin-bottom: 22px;
+            color: #94a3b8;
+        }
+
+        .footer-entity strong {
             color: #e2e8f0;
         }
 
-        .footer a {
-            color: #cbd5e1;
-            text-decoration: underline;
-            transition: color 0.3s;
+        .footer-links {
+            margin-bottom: 16px;
         }
 
-        .footer a:hover {
-            color: white;
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            margin: 0 12px;
+            transition: color 0.2s;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
+        .footer-links a:hover {
+            color: #38bdf8;
+        }
+
+        @media (max-width: 860px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 36px;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
 
-        @media (max-width: 768px) {
             .hero h1 {
-                font-size: 32px;
-            }
-            
-            .hero p {
-                font-size: 16px;
+                font-size: 38px;
             }
 
             .nav {
                 flex-direction: column;
+                gap: 16px;
             }
 
             .nav-right {
                 flex-wrap: wrap;
                 justify-content: center;
-            }
-            
-            .section-title {
-                font-size: 28px;
-            }
-
-            .pricing-body {
-                grid-template-columns: 1fr;
-                padding: 30px 20px;
-                gap: 30px;
-            }
-
-            .pricing-header {
-                padding: 30px 20px;
-            }
-
-            .pricing-header h2 {
-                font-size: 26px;
             }
         }
     </style>
@@ -586,17 +636,20 @@
     <header class="header">
         <div class="container">
             <nav class="nav">
-                <div class="logo">
-                    GoWords
-                    <img src="logo.png" alt="GoWords" style="height: 48px; width: auto; vertical-align: middle;">
-                </div>
+                <a href="index.html" class="brand-logo">
+                    <div class="brand-icon">M</div>
+                    <div>
+                        <div class="brand-text">Mornar Labs</div>
+                        <div class="brand-sub">Software Studio</div>
+                    </div>
+                </a>
                 <div class="nav-right">
                     <div class="nav-links">
-                        <a href="#features" data-key="navFeatures">Features</a>
-                        <a href="#how-it-works" data-key="navHowItWorks">How it works</a>
-                        <a href="#pricing" data-key="navPricing">Pricing</a>
+                        <a href="#products" data-key="navProducts">Products</a>
+                        <a href="#about" data-key="navAbout">About Us</a>
                         <a href="#support" data-key="navSupport">Support</a>
-                        <a href="privacy.html" data-key="navPrivacy">Privacy Policy</a>
+                        <a href="gowords.html" data-key="navGoWords">GoWords App</a>
+                        <a href="privacy.html" data-key="navPrivacy">Privacy</a>
                     </div>
                     <div class="lang-switcher">
                         <button class="lang-btn active" data-lang="en">EN</button>
@@ -609,412 +662,341 @@
     </header>
 
     <main>
+        <!-- Hero Section -->
         <section class="hero">
             <div class="container">
-                <h1 data-key="heroTitle">Learn languages with GoWords</h1>
-                <p data-key="heroSubtitle">Effective flashcard learning with spaced repetition system</p>
+                <div class="company-badge" data-key="heroBadge">
+                    ⚡ SOLOSBOR DOO / Mornar Labs
+                </div>
+                <h1 data-key="heroTitle">
+                    Creating intelligent mobile applications that <span>empower people</span>
+                </h1>
+                <p data-key="heroSubtitle">
+                    Mornar Labs is an independent software development lab building practical tools for education, language acquisition, and healthcare technology.
+                </p>
                 <div class="hero-actions">
-                    <a href="#pricing" class="cta-button-pro" data-key="heroProCta">Get GoWords Pro ($10/mo) ★</a>
-                    <a href="#how-it-works" class="cta-button" data-key="heroLearnMore">Learn how it works ↓</a>
+                    <a href="#products" class="btn-primary" data-key="heroExploreBtn">Explore Our Apps ↓</a>
+                    <a href="#about" class="btn-secondary" data-key="heroAboutBtn">About Studio</a>
                 </div>
             </div>
         </section>
 
-        <section id="features" class="features">
+        <!-- Products Section -->
+        <section id="products" class="products-section">
             <div class="container">
-                <h2 class="section-title" data-key="featuresTitle">Why GoWords?</h2>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">📱</div>
-                        <h3 data-key="feature1Title">Clean Interface</h3>
-                        <p data-key="feature1Desc">Intuitive app that makes learning enjoyable and effective</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🔄</div>
-                        <h3 data-key="feature2Title">Spaced Repetition</h3>
-                        <p data-key="feature2Desc">Scientifically proven method for long-term vocabulary retention</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🎯</div>
-                        <h3 data-key="feature3Title">Personal Progress</h3>
-                        <p data-key="feature3Desc">Track your progress and focus on words that need review</p>
-                    </div>
+                <div class="section-header">
+                    <span class="section-tag" data-key="productsTag">Portfolio</span>
+                    <h2 class="section-title" data-key="productsTitle">Our Mobile & Web Applications</h2>
+                    <p class="section-subtitle" data-key="productsSubtitle">
+                        Designed with focus on user experience, reliability, and modern engineering practices.
+                    </p>
                 </div>
-            </div>
-        </section>
 
-        <section id="how-it-works" class="how-it-works">
-            <div class="container">
-                <h2 class="section-title" style="color: white;" data-key="howItWorksTitle">How it works</h2>
-                <div class="steps">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <h3 data-key="step1Title">Choose a topic</h3>
-                        <p data-key="step1Desc">Pick a topic from the list: travel, food, business, and more</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <h3 data-key="step2Title">Study the deck</h3>
-                        <p data-key="step2Desc">Get a ready-made deck of words for your chosen topic</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <h3 data-key="step3Title">Flip cards</h3>
-                        <p data-key="step3Desc">Try to recall the translation, then check yourself</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">4</div>
-                        <h3 data-key="step4Title">Review regularly</h3>
-                        <p data-key="step4Desc">The algorithm tells you when to review each word</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Pricing Section -->
-        <section id="pricing" class="pricing-section">
-            <div class="container">
-                <div class="pricing-wrapper">
-                    <div class="pricing-header">
-                        <span class="badge-pro" data-key="proBadge">Premium Access</span>
-                        <h2 data-key="pricingTitle">GoWords Pro</h2>
-                        <p data-key="pricingSubtitle">Unlock unlimited decks, AI assistant, and advanced spaced repetition.</p>
-                    </div>
-                    
-                    <div class="pricing-body">
-                        <div class="pricing-features">
-                            <h3 data-key="whatsIncluded">What is included in Pro:</h3>
-                            <ul class="pricing-features-list">
-                                <li data-key="proFeature1">Unlimited decks & vocabulary cards</li>
-                                <li data-key="proFeature2">Smart spaced repetition algorithm</li>
-                                <li data-key="proFeature3">AI-powered word generation & examples</li>
-                                <li data-key="proFeature4">Native speaker audio pronunciation</li>
-                                <li data-key="proFeature5">Cloud sync across all your devices</li>
-                                <li data-key="proFeature6">Priority customer support</li>
+                <div class="products-grid">
+                    <!-- Product 1: GoWords -->
+                    <div class="product-card featured">
+                        <div>
+                            <span class="product-badge badge-gowords" data-key="badgeEducation">Language & Education</span>
+                            <div class="product-icon-wrap gowords-icon">
+                                <img src="logo.png" alt="GoWords Logo" style="height: 52px; width: auto;">
+                            </div>
+                            <h3 class="product-title">GoWords</h3>
+                            <p class="product-desc" data-key="gowordsDesc">
+                                Intelligent flashcard language learning application powered by spaced repetition algorithm and AI vocabulary assistance.
+                            </p>
+                            <ul class="product-features">
+                                <li data-key="gwFeat1">Scientifically proven spaced repetition system</li>
+                                <li data-key="gwFeat2">AI-driven word examples & context definitions</li>
+                                <li data-key="gwFeat3">Native speaker audio pronunciations</li>
+                                <li data-key="gwFeat4">Cross-device synchronization</li>
                             </ul>
                         </div>
+                        <div class="card-actions">
+                            <a href="gowords.html" class="btn-card btn-card-primary" data-key="btnViewGoWords">View GoWords Page →</a>
+                            <a href="gowords.html#how-it-works" class="btn-card btn-card-sub" data-key="btnLearnMore">How It Works</a>
+                        </div>
+                    </div>
 
-                        <div class="pricing-card-box">
-                            <div>
-                                <div class="pricing-price-tag">
-                                    <span class="pricing-price-amount">$10</span>
-                                    <span class="pricing-price-period" data-key="pricePeriod">/ month</span>
-                                </div>
+                    <!-- Product 2: Dental Radar -->
+                    <div class="product-card">
+                        <div>
+                            <span class="product-badge badge-radar" data-key="badgeHealthcare">Healthcare & Tech</span>
+                            <div class="product-icon-wrap radar-icon">
+                                📡
                             </div>
-
-                            <div>
-                                <div class="payment-maintenance-notice">
-                                    <strong data-key="paymentNoticeTitle">⚠️ Online payment temporarily unavailable</strong><br>
-                                    <span data-key="paymentNoticeDesc">Payment processing is temporarily paused for technical maintenance. Please check back later or contact support.</span>
-                                </div>
-
-                                <button id="pay-button" class="pricing-pay-btn disabled" disabled>
-                                    <span data-key="subscribeBtnUnavailable">Payment temporarily unavailable</span>
-                                </button>
-
-                                <div class="pricing-security-badge">
-                                    <svg viewBox="0 0 20 20">
-                                        <path d="M10 2a5 5 0 00-5 5v2a2 2 0 00-2 2v5a2 2 0 002 2h10a2 2 0 002-2v-5a2 2 0 00-2-2H7V7a3 3 0 016 0v2h2V7a5 5 0 00-5-5z"/>
-                                    </svg>
-                                    <span data-key="securePayment">Secure payment via Paddle</span>
-                                </div>
-                                <div class="pricing-cancel-note" data-key="cancelAnytime">Cancel anytime in 1 click</div>
-                            </div>
+                            <h3 class="product-title">Dental Radar</h3>
+                            <p class="product-desc" data-key="radarDesc">
+                                Curated industry intelligence platform delivering verified news, updates, and innovations in dental technology from official global sources.
+                            </p>
+                            <ul class="product-features">
+                                <li data-key="rdFeat1">Verified technology updates & announcements</li>
+                                <li data-key="rdFeat2">Real-time dental industry monitoring</li>
+                                <li data-key="rdFeat3">Clean mobile & web responsive interface</li>
+                                <li data-key="rdFeat4">Official source validation</li>
+                            </ul>
+                        </div>
+                        <div class="card-actions">
+                            <a href="https://radar.mornar-labs.com" target="_blank" rel="noopener noreferrer" class="btn-card btn-card-radar" data-key="btnOpenRadar">Launch Dental Radar ↗</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="get-started" class="app-cta">
+        <!-- About Organization Section -->
+        <section id="about" class="about-section">
             <div class="container">
-                <h2 data-key="startLearningTitle">Start learning today</h2>
-                <p data-key="startLearningSubtitle">Boost your vocabulary faster with GoWords spaced repetition and AI assistant</p>
-                <div class="app-cta-buttons">
-                    <a href="#pricing" class="cta-button-pro" data-key="heroProCta">Get GoWords Pro ($10/mo) ★</a>
-                    <a href="payment.html" class="cta-button" data-key="openCheckout">Go to Checkout →</a>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <span class="section-tag" data-key="aboutTag">About The Studio</span>
+                        <h2 data-key="aboutTitle">Building software with purpose and precision</h2>
+                        <p data-key="aboutP1">
+                            <strong>Mornar Labs</strong> is a software development initiative operated by <strong>SOLOSBOR DOO</strong>. We develop user-centric digital products spanning mobile applications, web platforms, and specialized professional services.
+                        </p>
+                        <p data-key="aboutP2">
+                            Our team focuses on native and cross-platform mobile engineering, intuitive product design, and sustainable backend infrastructure. We are committed to transparency, user data privacy, and prompt support across all distributed apps.
+                        </p>
+                    </div>
+
+                    <div class="company-info-card">
+                        <h3 data-key="orgDetailsTitle">🏢 Legal Entity & Developer Information</h3>
+                        <div class="info-row">
+                            <span class="info-label" data-key="infoLegalName">Legal Entity Name</span>
+                            <span class="info-val">SOLOSBOR DOO</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label" data-key="infoBrand">Studio & Trade Brand</span>
+                            <span class="info-val">Mornar Labs (mornar-labs.com)</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label" data-key="infoDomain">Official Domain</span>
+                            <span class="info-val">mornar-labs.com</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label" data-key="infoContact">Corporate Contact</span>
+                            <span class="info-val"><a href="mailto:info@mornar-labs.com">info@mornar-labs.com</a></span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Support & Organization Section -->
+        <!-- Support Section -->
         <section id="support" class="support-section">
             <div class="container">
-                <h2 class="section-title" data-key="supportTitle">Customer Support & Organization Details</h2>
-                <div class="support-grid">
-                    <div class="support-card">
-                        <h3 data-key="supportContactHead">💬 Contact Support</h3>
-                        <p data-key="supportContactDesc">Have a question or need assistance with GoWords? Our support team is here to help you.</p>
-                        <p><strong>Email:</strong> <a href="mailto:info@mornar-labs.com">info@mornar-labs.com</a></p>
-                        <p><strong>Account Deletion:</strong> <a href="delete_account.html" data-key="deleteAccountLink">Data & Account Deletion Request</a></p>
-                        <p data-key="supportResponseTime">We usually respond within 24 hours.</p>
+                <div class="section-header">
+                    <span class="section-tag" data-key="supportTag">Support</span>
+                    <h2 class="section-title" data-key="supportTitle">Public Customer Support</h2>
+                    <p class="section-subtitle" data-key="supportSubtitle">
+                        We provide publicly available support for all users of our mobile apps and web services.
+                    </p>
+                </div>
+
+                <div class="support-cards">
+                    <div class="support-box">
+                        <div class="support-box-icon">✉️</div>
+                        <h3 data-key="suppHelpHead">General Inquiries & Assistance</h3>
+                        <p data-key="suppHelpDesc">Questions about GoWords, Dental Radar, or company partnerships? Reach out to us directly.</p>
+                        <a href="mailto:info@mornar-labs.com">info@mornar-labs.com</a>
                     </div>
-                    <div class="support-card">
-                        <h3 data-key="legalEntityHead">🏢 Legal Entity & Developer</h3>
-                        <p><strong>Organization / Legal Entity:</strong> SOLOSBOR DOO</p>
-                        <p><strong>Brand / Trade Name:</strong> Mornar Labs</p>
-                        <p><strong>Application:</strong> GoWords - Language Learning Flashcards</p>
-                        <p><strong>Support & Inquiries:</strong> <a href="mailto:info@mornar-labs.com">info@mornar-labs.com</a></p>
+                    <div class="support-box">
+                        <div class="support-box-icon">🔒</div>
+                        <h3 data-key="suppPrivacyHead">Data & Account Privacy</h3>
+                        <p data-key="suppPrivacyDesc">Manage your personal data, request data removal, or delete your GoWords account.</p>
+                        <a href="delete_account.html" data-key="suppDeleteLink">Account & Data Deletion Request →</a>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-org">
-                <p><strong data-key="legalEntityLabel">Legal Entity / Organization:</strong> SOLOSBOR DOO (Mornar Labs)</p>
-                <p style="margin-top: 6px;"><span data-key="footerSupportLabel">Customer Support:</span> <a href="mailto:info@mornar-labs.com" style="color: #cbd5e1; font-weight: 600;">info@mornar-labs.com</a></p>
+            <div class="footer-entity">
+                <strong>SOLOSBOR DOO</strong> &bull; Operating as <strong>Mornar Labs</strong> &bull; <a href="mailto:info@mornar-labs.com" style="color: #38bdf8;">info@mornar-labs.com</a>
+            </div>
+            <div class="footer-links">
+                <a href="gowords.html">GoWords App</a>
+                <a href="https://radar.mornar-labs.com" target="_blank" rel="noopener noreferrer">Dental Radar</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="delete_account.html">Data Deletion</a>
             </div>
             <p data-key="footerCopyright">© 2026 SOLOSBOR DOO / Mornar Labs. All rights reserved.</p>
-            <p style="margin-top: 10px; opacity: 0.8;" data-key="footerTagline">GoWords - learn languages with joy</p>
-            <p style="margin-top: 15px;">
-                <a href="privacy.html" data-key="navPrivacy">Privacy Policy</a> |
-                <a href="terms.html" data-key="navTerms">Terms of Service & Refunds</a> |
-                <a href="delete_account.html" data-key="navDeleteAccount">Account Deletion</a>
-            </p>
         </div>
     </footer>
 
     <script>
         const translations = {
             en: {
-                navFeatures: "Features",
-                navHowItWorks: "How it works",
-                navPricing: "Pricing",
-                navPrivacy: "Privacy Policy",
-                navTerms: "Terms of Service & Refunds",
-                heroTitle: "Learn languages with GoWords",
-                heroSubtitle: "Effective flashcard learning with spaced repetition system",
-                heroLearnMore: "Learn how it works ↓",
-                heroProCta: "Get GoWords Pro ($10/mo) ★",
-                featuresTitle: "Why GoWords?",
-                feature1Title: "Clean Interface",
-                feature1Desc: "Intuitive app that makes learning enjoyable and effective",
-                feature2Title: "Spaced Repetition",
-                feature2Desc: "Scientifically proven method for long-term vocabulary retention",
-                feature3Title: "Personal Progress",
-                feature3Desc: "Track your progress and focus on words that need review",
-                howItWorksTitle: "How it works",
-                step1Title: "Choose a topic",
-                step1Desc: "Pick a topic from the list: travel, food, business, and more",
-                step2Title: "Study the deck",
-                step2Desc: "Get a ready-made deck of words for your chosen topic",
-                step3Title: "Flip cards",
-                step3Desc: "Try to recall the translation, then check yourself",
-                step4Title: "Review regularly",
-                step4Desc: "The algorithm tells you when to review each word",
-                proBadge: "Premium Access",
-                pricingTitle: "GoWords Pro",
-                pricingSubtitle: "Unlock unlimited decks, AI assistant, and advanced spaced repetition.",
-                whatsIncluded: "What is included in Pro:",
-                proFeature1: "Unlimited decks & vocabulary cards",
-                proFeature2: "Smart spaced repetition algorithm",
-                proFeature3: "AI-powered word generation & examples",
-                proFeature4: "Native speaker audio pronunciation",
-                proFeature5: "Cloud sync across all your devices",
-                proFeature6: "Priority customer support",
-                pricePeriod: "/ month",
-                subscribeBtn: "Subscribe for $10/mo",
-                securePayment: "Secure payment via Paddle",
-                cancelAnytime: "Cancel anytime in 1 click",
-                startLearningTitle: "Start learning today",
-                startLearningSubtitle: "Boost your vocabulary faster with GoWords spaced repetition and AI assistant",
-                openCheckout: "Go to Checkout →",
+                navProducts: "Products",
+                navAbout: "About Us",
                 navSupport: "Support",
-                paymentNoticeTitle: "⚠️ Online payment temporarily unavailable",
-                paymentNoticeDesc: "Payment processing is temporarily paused for technical maintenance. Please check back later or contact support.",
-                subscribeBtnUnavailable: "Payment temporarily unavailable",
-                supportTitle: "Customer Support & Organization Details",
-                supportContactHead: "💬 Contact Support",
-                supportContactDesc: "Have a question or need assistance with GoWords? Our support team is here to help you.",
-                deleteAccountLink: "Data & Account Deletion Request",
-                supportResponseTime: "We usually respond within 24 hours.",
-                legalEntityHead: "🏢 Legal Entity & Developer",
-                legalEntityLabel: "Legal Entity / Organization:",
-                footerSupportLabel: "Customer Support:",
-                navDeleteAccount: "Account Deletion",
-                footerCopyright: "© 2026 SOLOSBOR DOO / Mornar Labs. All rights reserved.",
-                footerTagline: "GoWords - learn languages with joy"
+                navGoWords: "GoWords App",
+                navPrivacy: "Privacy",
+                heroBadge: "⚡ SOLOSBOR DOO / Mornar Labs",
+                heroTitle: "Creating intelligent mobile applications that <span>empower people</span>",
+                heroSubtitle: "Mornar Labs is an independent software development lab building practical tools for education, language acquisition, and healthcare technology.",
+                heroExploreBtn: "Explore Our Apps ↓",
+                heroAboutBtn: "About Studio",
+                productsTag: "Portfolio",
+                productsTitle: "Our Mobile & Web Applications",
+                productsSubtitle: "Designed with focus on user experience, reliability, and modern engineering practices.",
+                badgeEducation: "Language & Education",
+                gowordsDesc: "Intelligent flashcard language learning application powered by spaced repetition algorithm and AI vocabulary assistance.",
+                gwFeat1: "Scientifically proven spaced repetition system",
+                gwFeat2: "AI-driven word examples & context definitions",
+                gwFeat3: "Native speaker audio pronunciations",
+                gwFeat4: "Cross-device synchronization",
+                btnViewGoWords: "View GoWords Page →",
+                btnLearnMore: "How It Works",
+                badgeHealthcare: "Healthcare & Tech",
+                radarDesc: "Curated industry intelligence platform delivering verified news, updates, and innovations in dental technology from official global sources.",
+                rdFeat1: "Verified technology updates & announcements",
+                rdFeat2: "Real-time dental industry monitoring",
+                rdFeat3: "Clean mobile & web responsive interface",
+                rdFeat4: "Official source validation",
+                btnOpenRadar: "Launch Dental Radar ↗",
+                aboutTag: "About The Studio",
+                aboutTitle: "Building software with purpose and precision",
+                aboutP1: "<strong>Mornar Labs</strong> is a software development initiative operated by <strong>SOLOSBOR DOO</strong>. We develop user-centric digital products spanning mobile applications, web platforms, and specialized professional services.",
+                aboutP2: "Our team focuses on native and cross-platform mobile engineering, intuitive product design, and sustainable backend infrastructure. We are committed to transparency, user data privacy, and prompt support across all distributed apps.",
+                orgDetailsTitle: "🏢 Legal Entity & Developer Information",
+                infoLegalName: "Legal Entity Name",
+                infoBrand: "Studio & Trade Brand",
+                infoDomain: "Official Domain",
+                infoContact: "Corporate Contact",
+                supportTag: "Support",
+                supportTitle: "Public Customer Support",
+                supportSubtitle: "We provide publicly available support for all users of our mobile apps and web services.",
+                suppHelpHead: "General Inquiries & Assistance",
+                suppHelpDesc: "Questions about GoWords, Dental Radar, or company partnerships? Reach out to us directly.",
+                suppPrivacyHead: "Data & Account Privacy",
+                suppPrivacyDesc: "Manage your personal data, request data removal, or delete your GoWords account.",
+                suppDeleteLink: "Account & Data Deletion Request →",
+                footerCopyright: "© 2026 SOLOSBOR DOO / Mornar Labs. All rights reserved."
             },
             ru: {
-                navFeatures: "Возможности",
-                navHowItWorks: "Как работает",
-                navPricing: "Тарифы",
+                navProducts: "Продукты",
+                navAbout: "О студии",
                 navSupport: "Поддержка",
-                navPrivacy: "Политика конфиденциальности",
-                navTerms: "Условия использования и возврат",
-                heroTitle: "Учите языки с GoWords",
-                heroSubtitle: "Эффективный метод обучения через карточки с интервальными повторениями",
-                heroLearnMore: "Как это работает ↓",
-                heroProCta: "Получить GoWords Pro ($10/мес) ★",
-                featuresTitle: "Почему GoWords?",
-                feature1Title: "Удобный интерфейс",
-                feature1Desc: "Интуитивно понятное приложение, которое делает обучение приятным и эффективным",
-                feature2Title: "Интервальные повторения",
-                feature2Desc: "Научно обоснованный метод для долгосрочного запоминания слов",
-                feature3Title: "Персональный прогресс",
-                feature3Desc: "Отслеживайте свой прогресс и фокусируйтесь на словах, которые нужно повторить",
-                howItWorksTitle: "Как это работает",
-                step1Title: "Выберите тему",
-                step1Desc: "Выберите интересующую тему из списка: путешествия, еда, бизнес и другие",
-                step2Title: "Изучайте колоду",
-                step2Desc: "Получите готовую колоду слов по выбранной теме и начните заниматься",
-                step3Title: "Переворачивайте карточки",
-                step3Desc: "Пытайтесь вспомнить перевод, затем проверяйте себя",
-                step4Title: "Повторяйте регулярно",
-                step4Desc: "Алгоритм подскажет, когда повторять каждое слово",
-                proBadge: "Премиум доступ",
-                pricingTitle: "Подписка GoWords Pro",
-                pricingSubtitle: "Откройте неограниченные колоды, помощь AI и продвинутую систему интервальных повторений.",
-                whatsIncluded: "Что входит в подписку Pro:",
-                proFeature1: "Неограниченное количество колод и карточек",
-                proFeature2: "Умный алгоритм интервальных повторений",
-                proFeature3: "Генерация слов и примеров с помощью AI",
-                proFeature4: "Озвучка слов носителями языка",
-                proFeature5: "Синхронизация прогресса на всех устройствах",
-                proFeature6: "Приоритетная поддержка пользователей",
-                pricePeriod: "/ месяц",
-                subscribeBtn: "Оформить подписку за $10/мес",
-                securePayment: "Безопасная оплата через Paddle",
-                cancelAnytime: "Отмена в любой момент в 1 клик",
-                startLearningTitle: "Начните учить слова уже сегодня",
-                startLearningSubtitle: "Расширяйте словарный запас быстрее с интервальными повторениями и AI-ассистентом GoWords",
-                openCheckout: "Перейти к оплате →",
-                paymentNoticeTitle: "⚠️ Оплата временно недоступна",
-                paymentNoticeDesc: "Прием платежей временно приостановлен по техническим причинам. Пожалуйста, попробуйте позже или свяжитесь с поддержкой.",
-                subscribeBtnUnavailable: "Оплата временно недоступна",
-                supportTitle: "Служба поддержки и юридическая информация",
-                supportContactHead: "💬 Служба поддержки",
-                supportContactDesc: "Есть вопросы или нужна помощь по работе с GoWords? Наша команда всегда готова помочь.",
-                deleteAccountLink: "Запрос на удаление данных и аккаунта",
-                supportResponseTime: "Обычно мы отвечаем в течение 24 часов.",
-                legalEntityHead: "🏢 Юридическое лицо и разработчик",
-                legalEntityLabel: "Юридическое лицо / Организация:",
-                footerSupportLabel: "Служба поддержки:",
-                navDeleteAccount: "Удаление аккаунта",
-                footerCopyright: "© 2026 SOLOSBOR DOO / Mornar Labs. Все права защищены.",
-                footerTagline: "GoWords - учите языки с удовольствием"
+                navGoWords: "Приложение GoWords",
+                navPrivacy: "Конфиденциальность",
+                heroBadge: "⚡ SOLOSBOR DOO / Mornar Labs",
+                heroTitle: "Создаем мобильные приложения, которые <span>помогают людям</span>",
+                heroSubtitle: "Mornar Labs — независимая лаборатория разработки программного обеспечения. Мы создаем надежные сервисы в сфере образования, изучения языков и технологий для здоровья.",
+                heroExploreBtn: "Наши приложения ↓",
+                heroAboutBtn: "О студии",
+                productsTag: "Портфолио",
+                productsTitle: "Наши мобильные и веб-продукты",
+                productsSubtitle: "Разработаны с акцентом на удобство пользователя, быстродействие и надежность.",
+                badgeEducation: "Образование и языки",
+                gowordsDesc: "Умное приложение для изучения иностранных языков с помощью карточек, научно обоснованной системы интервальных повторений и AI-помощника.",
+                gwFeat1: "Эффективный метод интервальных повторений",
+                gwFeat2: "Генерация примеров и контекста через AI",
+                gwFeat3: "Качественная озвучка слов носителями языка",
+                gwFeat4: "Синхронизация прогресса на всех устройствах",
+                btnViewGoWords: "Страница GoWords →",
+                btnLearnMore: "Как это работает",
+                badgeHealthcare: "Медицина и технологии",
+                radarDesc: "Платформа отраслевой аналитики, отслеживающая проверенные новости, тренды и обновления стоматологических технологий из официальных источников.",
+                rdFeat1: "Отобранные обновления и инновации",
+                rdFeat2: "Мониторинг профильных мировых источников",
+                rdFeat3: "Удобный интерфейс для смартфонов и веба",
+                rdFeat4: "Проверка подлинности источников",
+                btnOpenRadar: "Открыть Dental Radar ↗",
+                aboutTag: "О лаборатории",
+                aboutTitle: "Разработка технологичных продуктов со смыслом",
+                aboutP1: "<strong>Mornar Labs</strong> — бренд студии разработки, юридически управляемый компанией <strong>SOLOSBOR DOO</strong>. Мы специализируемся на проектировании мобильных сервисов, кроссплатформенных приложений и специализированных веб-инструментов.",
+                aboutP2: "Мы уделяем пристальное внимание качеству архитектуры, эргономике интерфейсов и защите персональных данных наших пользователей. Для каждого из наших продуктов мы обеспечиваем открытую клиентскую поддержку.",
+                orgDetailsTitle: "🏢 Юридическая информация о разработчике",
+                infoLegalName: "Юридическое лицо",
+                infoBrand: "Бренд студии",
+                infoDomain: "Официальный сайт",
+                infoContact: "Контакты",
+                supportTag: "Служба поддержки",
+                supportTitle: "Клиентская поддержка",
+                supportSubtitle: "Мы обеспечиваем открытую и своевременную поддержку для всех пользователей наших приложений.",
+                suppHelpHead: "Вопросы и помощь",
+                suppHelpDesc: "Появились вопросы по работе GoWords или Dental Radar? Напишите нам напрямую.",
+                suppPrivacyHead: "Конфиденциальность и данные",
+                suppPrivacyDesc: "Управление личными данными и удаление аккаунта в сервисах.",
+                suppDeleteLink: "Запрос на удаление данных и аккаунта →",
+                footerCopyright: "© 2026 SOLOSBOR DOO / Mornar Labs. Все права защищены."
             },
             sr: {
-                navFeatures: "Mogućnosti",
-                navHowItWorks: "Kako radi",
-                navPricing: "Cene",
+                navProducts: "Proizvodi",
+                navAbout: "O nama",
                 navSupport: "Podrška",
-                navPrivacy: "Politika privatnosti",
-                navTerms: "Uslovi korišćenja i povraćaj",
-                heroTitle: "Učite jezike sa GoWords",
-                heroSubtitle: "Efektivna metoda učenja sa karticama i intervalnim ponavljanjem",
-                heroLearnMore: "Saznajte kako radi ↓",
-                heroProCta: "Nabavi GoWords Pro ($10/mes) ★",
-                featuresTitle: "Zašto GoWords?",
-                feature1Title: "Jednostavan interfejs",
-                feature1Desc: "Intuitivna aplikacija koja učenje čini prijatnim i efikasnim",
-                feature2Title: "Intervalna ponavljanja",
-                feature2Desc: "Naučno utemeljena metoda za dugotrajno pamćenje reči",
-                feature3Title: "Lični napredak",
-                feature3Desc: "Pratite svoj napredak i fokusirajte se na reči koje treba ponoviti",
-                howItWorksTitle: "Kako funkcioniše",
-                step1Title: "Izaberite temu",
-                step1Desc: "Izaberite temu iz liste: putovanja, hrana, biznis i druge",
-                step2Title: "Učite špil",
-                step2Desc: "Dobijte gotov špil reči za izabranu temu i počnite da učite",
-                step3Title: "Okrećite kartice",
-                step3Desc: "Pokušajte da se setite prevoda, zatim proverite sebe",
-                step4Title: "Ponavljajte redovno",
-                step4Desc: "Algoritam će vam reći kada da ponovite svaku reč",
-                proBadge: "Premium pristup",
-                pricingTitle: "GoWords Pro pretplata",
-                pricingSubtitle: "Otključajte neograničene špilove, AI asistenta i napredni sistem ponavljanja.",
-                whatsIncluded: "Šta je uključeno u Pro:",
-                proFeature1: "Neograničen broj špilova i kartica reči",
-                proFeature2: "Pametan algoritam intervalnog ponavljanja",
-                proFeature3: "Generisanje reči i primera uz pomoć AI-ja",
-                proFeature4: "Izgovor reči od strane izvornih govornika",
-                proFeature5: "Sinhronizacija na svim vašim uređajima",
-                proFeature6: "Prioritetna korisnička podrška",
-                pricePeriod: "/ mesečno",
-                subscribeBtn: "Pretplatite se za $10/mes",
-                securePayment: "Sigurno plaćanje putem Paddle-a",
-                cancelAnytime: "Otkažite u bilo kom trenutku u 1 klik",
-                startLearningTitle: "Započnite učenje već danas",
-                startLearningSubtitle: "Ubrzajte učenje reči uz sistem intervalnih ponavljanja i GoWords AI asistenta",
-                openCheckout: "Idi na plaćanje →",
-                paymentNoticeTitle: "⚠️ Plaćanje je privremeno nedostupno",
-                paymentNoticeDesc: "Obrada plaćanja je privremeno obustavljena iz tehničkih razloga. Molimo pokušajte ponovo kasnije ili kontaktirajte podršku.",
-                subscribeBtnUnavailable: "Plaćanje privremeno nedostupno",
-                supportTitle: "Korisnička podrška i podaci o organizaciji",
-                supportContactHead: "💬 Korisnička podrška",
-                supportContactDesc: "Imate pitanja ili vam je potrebna pomoć sa GoWords aplikacijom? Naš tim je tu za vas.",
-                deleteAccountLink: "Zahtev za brisanje naloga i podataka",
-                supportResponseTime: "Obično odgovaramo u roku od 24 sata.",
-                legalEntityHead: "🏢 Pravno lice i programer",
-                legalEntityLabel: "Pravno lice / Organizacija:",
-                footerSupportLabel: "Korisnička podrška:",
-                navDeleteAccount: "Brisanje naloga",
-                footerCopyright: "© 2026 SOLOSBOR DOO / Mornar Labs. Sva prava zadržana.",
-                footerTagline: "GoWords - učite jezike sa zadovoljstvom"
+                navGoWords: "GoWords Aplikacija",
+                navPrivacy: "Privatnost",
+                heroBadge: "⚡ SOLOSBOR DOO / Mornar Labs",
+                heroTitle: "Kreiramo mobilne aplikacije koje <span>osnažuju ljude</span>",
+                heroSubtitle: "Mornar Labs je razvojni studio kompanije SOLOSBOR DOO posvećen kreiranju alata za učenje jezika i zdravstvene tehnologije.",
+                heroExploreBtn: "Naše aplikacije ↓",
+                heroAboutBtn: "O nama",
+                productsTag: "Portfolio",
+                productsTitle: "Naše mobilne i veb aplikacije",
+                productsSubtitle: "Dizajnirane sa fokusom na korisničko iskustvo, pouzdanost i moderne tehnologije.",
+                badgeEducation: "Jezici i obrazovanje",
+                gowordsDesc: "Inteligentna aplikacija za učenje jezika pomoću kartica sa sistemom intervalnog ponavljanja i AI asistencijom.",
+                gwFeat1: "Naučno dokazan metod intervalnih ponavljanja",
+                gwFeat2: "AI generisanje primera i konteksta",
+                gwFeat3: "Izgovor izvornih govornika",
+                gwFeat4: "Sinhronizacija na svim uređajima",
+                btnViewGoWords: "Pogledaj GoWords →",
+                btnLearnMore: "Kako funkcioniše",
+                badgeHealthcare: "Zdravstvo i tehnologija",
+                radarDesc: "Platforma za praćenje vesti i inovacija u stomatološkoj tehnologiji iz zvaničnih izvora.",
+                rdFeat1: "Proverene tehnološke novosti",
+                rdFeat2: "Praćenje inovacija u realnom vremenu",
+                rdFeat3: "Prilagođeno za mobilne i veb uređaje",
+                rdFeat4: "Validacija zvaničnih izvora",
+                btnOpenRadar: "Otvori Dental Radar ↗",
+                aboutTag: "O studiju",
+                aboutTitle: "Razvoj softvera sa svrhom i preciznošću",
+                aboutP1: "<strong>Mornar Labs</strong> je studio za razvoj softvera u vlasništvu kompanije <strong>SOLOSBOR DOO</strong>.",
+                aboutP2: "Fokusirani smo na kreiranje kvalitetnih mobilnih rešenja i transparentnu podršku korisnicima.",
+                orgDetailsTitle: "🏢 Podaci o pravnom licu",
+                infoLegalName: "Naziv kompanije",
+                infoBrand: "Brend studija",
+                infoDomain: "Zvanični domen",
+                infoContact: "Kontakt",
+                supportTag: "Podrška",
+                supportTitle: "Korisnička podrška",
+                supportSubtitle: "Pružamo otvorenu korisničku podršku za sve korisnike naših servisa.",
+                suppHelpHead: "Pitanja i pomoć",
+                suppHelpDesc: "Pitanja o GoWords ili Dental Radar aplikacijama? Kontaktirajte naš tim.",
+                suppPrivacyHead: "Privatnost i podaci",
+                suppPrivacyDesc: "Upravljanje podacima ili brisanje naloga.",
+                suppDeleteLink: "Zahtev za brisanje podataka →",
+                footerCopyright: "© 2026 SOLOSBOR DOO / Mornar Labs. Sva prava zadržana."
             }
         };
 
         let currentLang = 'en';
 
-        // 1. Paddle Checkout Setup
-        initPaddleConfig();
-
-        const payBtn = document.getElementById('pay-button');
-        if (payBtn) {
-            payBtn.addEventListener('click', () => {
-                const urlParams = new URLSearchParams(window.location.search);
-                const userId = urlParams.get('userId');
-                const customerEmail = urlParams.get('email');
-
-                const checkoutOptions = {
-                    items: [
-                        { 
-                            priceId: window.PADDLE_CONFIG ? window.PADDLE_CONFIG.prices.proMonthly : "pri_01m0mwe5n2zq0btc69bch5xxqw", 
-                            quantity: 1 
-                        }
-                    ],
-                    settings: {
-                        displayMode: "overlay",
-                        theme: "light",
-                        locale: currentLang === 'sr' ? 'en' : currentLang
-                    }
-                };
-
-                if (customerEmail) checkoutOptions.customer = { email: customerEmail };
-                if (userId) checkoutOptions.customData = { userId: userId };
-
-                Paddle.Checkout.open(checkoutOptions);
-            });
-        }
-
-        // 2. Language Switcher
         function setLanguage(lang) {
+            if (!translations[lang]) lang = 'en';
             currentLang = lang;
-            document.documentElement.lang = lang === 'en' ? 'en' : (lang === 'sr' ? 'sr' : 'ru');
-            
+            document.documentElement.lang = lang;
+
             if (lang === 'en') {
-                document.title = 'GoWords - Learn languages with flashcards';
+                document.title = 'Mornar Labs — Software Studio & Mobile Applications';
             } else if (lang === 'sr') {
-                document.title = 'GoWords - Učite jezike sa karticama';
+                document.title = 'Mornar Labs — Softverski studio i mobilne aplikacije';
             } else {
-                document.title = 'GoWords - Учите языки с карточками';
+                document.title = 'Mornar Labs — Студия разработки и мобильные приложения';
             }
-            
+
             document.querySelectorAll('[data-key]').forEach(element => {
                 const key = element.getAttribute('data-key');
                 if (translations[lang] && translations[lang][key]) {
-                    if (element.tagName === 'INPUT' && element.getAttribute('placeholder') !== null) {
-                        element.placeholder = translations[lang][key];
-                    } else {
-                        element.textContent = translations[lang][key];
-                    }
+                    element.innerHTML = translations[lang][key];
                 }
             });
-            
+
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 if (btn.getAttribute('data-lang') === lang) {
                     btn.classList.add('active');
