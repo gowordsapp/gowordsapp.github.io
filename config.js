@@ -15,7 +15,7 @@ window.PADDLE_CONFIG = {
 /**
  * Инициализирует Paddle с глобальной конфигурацией
  */
-function initPaddleConfig() {
+function initPaddleConfig(options = {}) {
     if (typeof Paddle === 'undefined') {
         console.error('Paddle.js is not loaded');
         return;
@@ -25,7 +25,13 @@ function initPaddleConfig() {
         Paddle.Environment.set("sandbox");
     }
 
-    Paddle.Initialize({
+    const initOptions = {
         token: window.PADDLE_CONFIG.token
-    });
+    };
+
+    if (options && typeof options.eventCallback === 'function') {
+        initOptions.eventCallback = options.eventCallback;
+    }
+
+    Paddle.Initialize(initOptions);
 }
