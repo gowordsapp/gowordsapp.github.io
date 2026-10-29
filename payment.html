@@ -1044,12 +1044,12 @@
                 },
                 customer: {
                     email: effectiveEmail
+                },
+                customData: {
+                    email: effectiveEmail,
+                    userId: effectiveUserId || ""
                 }
             };
-
-            if (effectiveUserId) {
-                checkoutOptions.customData = { userId: effectiveUserId };
-            }
 
             Paddle.Checkout.open(checkoutOptions);
         });
