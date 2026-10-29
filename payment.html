@@ -444,13 +444,8 @@
                         </div>
 
                         <div>
-                            <div class="payment-maintenance-notice">
-                                <strong data-key="paymentNoticeTitle">⚠️ Online payment temporarily unavailable</strong><br>
-                                <span data-key="paymentNoticeDesc">Payment processing is temporarily paused for technical maintenance. Please check back later or contact support.</span>
-                            </div>
-
-                            <button id="pay-button" class="pay-btn disabled" disabled>
-                                <span data-key="subscribeBtnUnavailable">Payment temporarily unavailable</span>
+                            <button id="pay-button" class="pay-btn">
+                                <span data-key="subscribeBtn">Subscribe for $10/mo</span>
                             </button>
 
                             <div class="security-badge">
@@ -583,7 +578,7 @@
             const checkoutOptions = {
                 items: [
                     { 
-                        priceId: window.PADDLE_CONFIG ? window.PADDLE_CONFIG.prices.proMonthly : "pri_01m0mwe5n2zq0btc69bch5xxqw", 
+                        priceId: window.PADDLE_CONFIG ? window.PADDLE_CONFIG.prices.proMonthly : "pri_01m6347pvh8ywjcazag8emvqyg", 
                         quantity: 1 
                     }
                 ],

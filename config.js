@@ -1,14 +1,14 @@
-﻿// Paddle & Checkout Configuration
+// Paddle & Checkout Configuration
 window.PADDLE_CONFIG = {
     // Окружение: 'sandbox' для тестирования или 'production' (или 'live') для боевых платежей
-    environment: "sandbox",
+    environment: "production",
 
     // Клиентский токен Paddle (Client-side token)
     token: "live_78b6c88d3336ba0bd0c77fead59",
 
     // Идентификаторы цен / продуктов в Paddle
     prices: {
-        proMonthly: "pri_01m0ycsmsws56rtyrb99zzv2kg"
+        proMonthly: "pri_01m6347pvh8ywjcazag8emvqyg"
     }
 };
 
