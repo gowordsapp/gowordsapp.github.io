@@ -8,7 +8,7 @@ window.PADDLE_CONFIG = {
 
     // Идентификаторы цен / продуктов в Paddle
     prices: {
-        proMonthly: "pri_01m6347pvh8ywjcazag8emvqyg"
+        proMonthly: "pri_01m0ycsmsws56rtyrb99zzv2kg"
     }
 };
 
